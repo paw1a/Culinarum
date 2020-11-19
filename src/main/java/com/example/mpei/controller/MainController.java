@@ -100,7 +100,7 @@ public class MainController {
             user.getRecipes().remove(recipe);
             userRepository.save(user);
         }
-        return "redirect:/favorites";
+        return "redirect:/";
     }
 
     @GetMapping("/{id}")

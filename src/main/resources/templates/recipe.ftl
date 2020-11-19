@@ -33,10 +33,10 @@
                     </div>
                     <div class="recipe-tags">
                         <div class="tag-content">
-                            <a class="tag" href="#">${recipe.type}</a>
+                            <a class="tag" href="#">${recipe.cuisine}</a>
                         </div>
                         <div class="tag-content">
-                            <a class="tag" href="#">${recipe.cuisine}</a>
+                            <a class="tag" href="#">${recipe.type}</a>
                         </div>
                     </div>
                     <div class="recipe-characterisctics">

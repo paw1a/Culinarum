@@ -880,6 +880,7 @@ input[type=checkbox]:checked~.accordion-child:last-child {
 
 .checkbox input[type="checkbox"] {
 	opacity: 0;
+	display: none;
 }
 
 .checkbox label {
@@ -887,6 +888,7 @@ input[type=checkbox]:checked~.accordion-child:last-child {
 	display: inline-block;
 	/*16px width of fake checkbox + 6px distance between fake checkbox and text*/
 	padding-left: 22px;
+	width: 100%;
 }
 
 .checkbox label::before,
@@ -1397,7 +1399,7 @@ footer {
 	}
 }
 
-@media(max-width: 576px) {
+@media(max-width: 650px) {
 	header nav .logotype {
 		font-size: 1rem;
 		padding-top: 14px;

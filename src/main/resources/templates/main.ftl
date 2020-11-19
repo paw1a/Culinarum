@@ -35,20 +35,21 @@
                         </div>
                         <div class="recipe-tags">
                             <div class="tag-content">
-                                <a class="tag" href="#">${recipe.type}</a>
+                                <a class="tag" href="#">${recipe.cuisine}</a>
                             </div>
                             <div class="tag-content">
-                                <a class="tag" href="#">${recipe.cuisine}</a>
+                                <a class="tag" href="#">${recipe.type}</a>
                             </div>
                         </div>
                     </div>
                     <div class="recipe-second-part">
                         <div class="recipe-description">
                             <div class="description-name">
-                                <div class="description-name-content">Рецепт</div>
+                                <div class="description-name-content">Краткий рецепт</div>
                                 <div class="name-span"></div>
                             </div>
-                            <div class="description-text">${recipe.recipe}</div>
+                            <div class="description-text">${(recipe.recipe?length>201)?
+                                then(recipe.recipe?substring(0, 200)+"...", recipe.recipe)}</div>
                         </div>
                         <div class="recipe-characterisctics">
                             <div class="recipe-time">
@@ -75,7 +76,7 @@
                             </div>
                             <div class="sticker-container">
                                 <div class="sticker-more">
-                                    <a class="sticker-more-content <#if !s.known>disabled</#if>" href="/${recipe.id}"></a>
+                                    <a class="sticker-more-content" href="/${recipe.id}"></a>
                                 </div>
                             </div>
                         </div>
