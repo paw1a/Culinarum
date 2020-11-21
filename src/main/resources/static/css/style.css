@@ -1541,3 +1541,121 @@ a.disabled {
 .sticker-more:hover .sticker-more-content {
 	border-color: #2489cf;
 }
+
+.button-show {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+}
+
+.sticker-container-show {
+	padding: 1.5em 0.3em;
+	text-align: center;
+}
+
+.sticker-begin-content,
+.sticker-back-content,
+.sticker-active-content,
+.sticker-next-content,
+.sticker-end-content {
+	width: 20%;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+.sticker-begin-content:before,
+.sticker-back-content:before,
+.sticker-active-content:before,
+.sticker-next-content:before,
+.sticker-end-content:before {
+	display: block;
+	color: rgba(0, 0, 0, .075);
+	padding: 6px 5px;
+	position: relative;
+	margin: 0 auto;
+	font-weight: 600;
+	font-size: 1.2em;
+}
+
+.sticker-begin-content:before {
+	content: "\f100";
+	font-family: FontAwesome;
+}
+.sticker-back-content:before {
+	content: "\f104";
+	font-family: FontAwesome;
+}
+.sticker-active-content:before {
+	content: "5";
+	font-weight: 600;
+}
+.sticker-next-content:before {
+	content: "\f105";
+	font-family: FontAwesome;
+}
+.sticker-end-content:before {
+
+	content: "\f101";
+	font-family: FontAwesome;
+}
+
+
+
+.sticker-show:hover .sticker-begin-content:before,
+.sticker-show:hover .sticker-back-content:before,
+.sticker-show:hover .sticker-active-content:before,
+.sticker-show:hover .sticker-next-content:before,
+.sticker-show:hover .sticker-end-content:before {
+	color: #2489cf;
+}
+
+.sticker-begin-content,
+.sticker-back-content,
+.sticker-active-content,
+.sticker-next-content,
+.sticker-end-content {
+	height: 40px;
+	width: 40px;
+	color: black;
+	transition: 0.3s linear;
+	font-size: 1.4em;
+	font-weight: 500;
+	line-height: 23px;
+	background: rgba(0, 0, 0, .01);
+	border: 3px solid rgba(0, 0, 0, .075);
+	border-radius: 25px;
+}
+
+.sticker-show:hover .sticker-begin-content,
+.sticker-show:hover .sticker-back-content,
+.sticker-show:hover .sticker-active-content,
+.sticker-show:hover .sticker-next-content,
+.sticker-show:hover .sticker-end-content {
+	border-color: #2489cf;
+}
+
+.sticker-begin-content,
+.sticker-back-content, .sticker-active-content,
+.sticker-next-content, .sticker-end-content {
+	height: 30px;
+	width: 30px;
+	line-height: 12px;
+}
+.sticker-begin-content:before,
+.sticker-back-content:before,
+.sticker-active-content:before,
+.sticker-next-content:before,
+.sticker-end-content:before {
+	font-size: 0.9em;
+}
+.sticker-begin-content:before,
+.sticker-back-content:before {
+	font-size: 0.9em;
+	left: 0px;
+}
+.sticker-next-content:before,
+.sticker-end-content:before {
+	font-size: 0.9em;
+	left: 1px;
+}

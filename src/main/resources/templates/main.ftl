@@ -84,10 +84,37 @@
                 </div>
             </#list>
 
-            <div class="button-show">
+            <#--<div class="button-show">
                 <div class="sticker-container-show">
                     <div class="sticker-show">
                         <a class="sticker-show-content" href="#"></a>
+                    </div>
+                </div>
+            </div>-->
+            <div class="button-show">
+                <div class="sticker-container-show">
+                    <div class="sticker-show">
+                        <a class="sticker-begin-content" href="#"></a>
+                    </div>
+                </div>
+                <div class="sticker-container-show">
+                    <div class="sticker-show">
+                        <a class="sticker-back-content" href="#"></a>
+                    </div>
+                </div>
+                <div class="sticker-container-show">
+                    <div class="sticker-show">
+                        <a class="sticker-active-content" href="#"></a>
+                    </div>
+                </div>
+                <div class="sticker-container-show">
+                    <div class="sticker-show">
+                        <a class="sticker-next-content" href="#"></a>
+                    </div>
+                </div>
+                <div class="sticker-container-show">
+                    <div class="sticker-show">
+                        <a class="sticker-end-content" href="#"></a>
                     </div>
                 </div>
             </div>
