@@ -30,7 +30,7 @@
                             <div class="name-span"></div>
                         </div>
                         <div class="dish-photo">
-                            <img src="css\images\pizza.jpg">
+                            <img src="https://res.cloudinary.com/miragost/image/upload/v1606145231/culinarum/${recipe.image}">
                         </div>
                     </div>
                     <div class="recipe-second-part">
