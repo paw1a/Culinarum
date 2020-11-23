@@ -63,8 +63,9 @@ public class MainController {
             page = recipeRepository.findByNameContainsIgnoreCase(search, pageable);
             url += "search="+search+"&";
         } else {
-            page = recipeRepository.findAllByCuisineInAndTypeIn(
-                    cuisineCheck, typeCheck, pageable);
+            /*page = recipeRepository.findAllByCuisineInAndTypeIn(
+                    cuisineCheck, typeCheck, pageable);*/
+            page = recipeRepository.findAll(pageable);
         }
 
         Iterable<Cuisine> cuisines = cuisineRepository.findAll();

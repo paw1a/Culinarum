@@ -24,8 +24,10 @@ public class Recipe {
     private String recipe;
     private String type;
     private String cuisine;
+    private String image;
 
     private Integer minutes;
+    private Integer calories;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_recipe",

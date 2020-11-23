@@ -31,7 +31,7 @@
                             <div class="name-span"></div>
                         </div>
                         <div class="dish-photo">
-                            <img src="css\images\pizza.jpg">
+                            <img src="https://res.cloudinary.com/miragost/image/upload/v1606145231/culinarum/${recipe.image}">
                         </div>
                         <div class="recipe-tags">
                             <div class="tag-content">
@@ -54,11 +54,11 @@
                         <div class="recipe-characterisctics">
                             <div class="recipe-time">
                                 <div class="calories-name"></div>
-                                <div class="time-text">10 min</div>
+                                <div class="time-text">${recipe.minutes} мин</div>
                             </div>
                             <div class="recipe-calories">
                                 <div class="calories-name"></div>
-                                <div class="calories-text">300 cal</div>
+                                <div class="calories-text">${recipe.calories} ккал</div>
                             </div>
                         </div>
                         <div class="recipe-buttons">

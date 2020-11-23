@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
     Page<Recipe> findAllByCuisineInAndTypeIn(List<String> recipes, List<String> types, Pageable pageable);
-    List<Recipe> findAll();
+    Page<Recipe> findAll(Pageable pageable);
     Optional<Recipe> findById(Long id);
     Page<Recipe> findByNameContainsIgnoreCase(String name, Pageable pageable);
 }
