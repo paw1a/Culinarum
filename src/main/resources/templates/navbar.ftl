@@ -4,9 +4,9 @@
     <div class="header-container">
         <nav id="navigation">
             <a href="/" class="logotype">Culinarum</a>
-            <form class="search-form" action="">
-                <input class="search-input" type="search">
-                <i class="fa fa-search"></i>
+            <form class="search-form" method="get" action="/">
+                <input class="search-input" type="search" name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
             </form>
             <a aria-label="mobile menu" class="nav-toggle">
                 <span></span>

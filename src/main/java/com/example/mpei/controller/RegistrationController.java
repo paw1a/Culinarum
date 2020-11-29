@@ -29,17 +29,15 @@ public class RegistrationController {
     public String createUser(@ModelAttribute User user, HttpServletRequest request, Model model) {
         String password = user.getPassword();
         if(!userService.saveUser(user)) {
-            model.addAttribute("usernameError", "Пользователь с таким e-mail существует");
-            return "main";
+            return "redirect:";
         }
         authWithAuthManager(request,user.getEmail(),password);
         return "redirect:";
     }
 
     @GetMapping("/loginError")
-    public String loginError(Model model) {
-        model.addAttribute("loginError", "Неверный e-mail или пароль");
-        return "redirect:/main";
+    public String loginError() {
+        return "redirect:/";
     }
 
     public void authWithAuthManager(HttpServletRequest request, String email, String password) {

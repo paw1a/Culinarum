@@ -84,37 +84,30 @@
                 </div>
             </#list>
 
-            <#--<div class="button-show">
-                <div class="sticker-container-show">
-                    <div class="sticker-show">
-                        <a class="sticker-show-content" href="#"></a>
-                    </div>
-                </div>
-            </div>-->
             <div class="button-show">
                 <div class="sticker-container-show">
                     <div class="sticker-show">
-                        <a class="sticker-begin-content" href="#"></a>
+                        <a class="sticker-begin-content <#if page.number == 0>disabled</#if>" href="/${url}page=0"></a>
                     </div>
                 </div>
                 <div class="sticker-container-show">
                     <div class="sticker-show">
-                        <a class="sticker-back-content" href="#"></a>
+                        <a class="sticker-back-content <#if page.number == 0>disabled</#if>" href="/${url}page=${page.number-1}"></a>
                     </div>
                 </div>
                 <div class="sticker-container-show">
                     <div class="sticker-show">
-                        <a class="sticker-active-content" href="#"></a>
+                        <a class="sticker-active-content disabled"></a>
                     </div>
                 </div>
                 <div class="sticker-container-show">
                     <div class="sticker-show">
-                        <a class="sticker-next-content" href="#"></a>
+                        <a class="sticker-next-content <#if page.number == page.totalPages-1>disabled</#if>" href="/${url}page=${page.number+1}"></a>
                     </div>
                 </div>
                 <div class="sticker-container-show">
                     <div class="sticker-show">
-                        <a class="sticker-end-content" href="#"></a>
+                        <a class="sticker-end-content <#if page.number == page.totalPages-1>disabled</#if>" href="/${url}page=${page.totalPages-1}"></a>
                     </div>
                 </div>
             </div>

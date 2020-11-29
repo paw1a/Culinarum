@@ -1,15 +1,12 @@
 package com.example.mpei.controller;
 
-import com.example.mpei.entity.Cuisine;
 import com.example.mpei.entity.Recipe;
 import com.example.mpei.entity.Type;
 import com.example.mpei.entity.User;
-import com.example.mpei.repository.CuisineRepository;
 import com.example.mpei.repository.RecipeRepository;
 import com.example.mpei.repository.TypeRepository;
 import com.example.mpei.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +17,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -29,54 +28,76 @@ public class MainController {
     private RecipeRepository recipeRepository;
 
     @Autowired
-    private CuisineRepository cuisineRepository;
-
-    @Autowired
-    private TypeRepository typeRepository;
-
-    @Autowired
     private UserRepository userRepository;
 
     @GetMapping("/")
     public String main(@RequestParam(required = false) String search, @PageableDefault(sort = {"id"},
             direction = Sort.Direction.ASC) Pageable pageable, Model model,
-                       @RequestParam(name = "cuisineCheck", required = false) List<String> cuisineCheck,
+                       @RequestParam(name = "timeCheck", required = false) List<String> timeCheck,
+                       @RequestParam(name = "caloriesCheck", required = false) List<String> caloriesCheck,
                        @RequestParam(name = "typeCheck", required = false) List<String> typeCheck) {
         Page<Recipe> page;
-
-        String url = "?";
-
-        if(typeCheck == null) {
-            typeCheck = new ArrayList<>();
-            for(Type type : typeRepository.findAll()) typeCheck.add(type.getName());
-        } else {
-            for (String s : typeCheck) url += "typeCheck="+s+"&";
-        }
-        if(cuisineCheck == null) {
-            cuisineCheck = new ArrayList<>();
-            for(Cuisine cuisine : cuisineRepository.findAll()) cuisineCheck.add(cuisine.getName());
-        } else {
-            for(String s : cuisineCheck) url += "cuisineCheck="+s+"&";
-        }
+        StringBuilder url = new StringBuilder("?");
 
         if(search != null && !search.isEmpty()) {
             page = recipeRepository.findByNameContainsIgnoreCase(search, pageable);
-            url += "search="+search+"&";
+            url.append("search=").append(search).append("&");
         } else {
-            /*page = recipeRepository.findAllByCuisineInAndTypeIn(
-                    cuisineCheck, typeCheck, pageable);*/
-            page = recipeRepository.findAll(pageable);
-        }
+            Set<Recipe> recipes = new HashSet<>();
+            if (typeCheck == null)
+                typeCheck = Arrays.asList("Первые блюда", "Вторые блюда", "Напитки", "Салаты");
+            else for (String s : typeCheck) url.append("typeCheck=").append(s).append("&");
 
-        Iterable<Cuisine> cuisines = cuisineRepository.findAll();
-        Collections.sort((List<Cuisine>) cuisines, Comparator.comparingInt(o -> o.getName().charAt(0)));
-        Iterable<Type> types = typeRepository.findAll();
+            List<Point> minutes = new ArrayList<>();
+            if (timeCheck == null) {
+                minutes.add(new Point(0, 30));
+                minutes.add(new Point(30, 60));
+                minutes.add(new Point(60, 90));
+                minutes.add(new Point(90, 1000));
+            } else {
+                for (String s : timeCheck) {
+                    switch (Integer.parseInt(s)) {
+                        case 1: minutes.add(new Point(0, 30));break;
+                        case 2: minutes.add(new Point(30, 60));break;
+                        case 3: minutes.add(new Point(60, 90));break;
+                        case 4: minutes.add(new Point(90, 1000));break;
+                    }
+                }
+                for (String s : timeCheck) url.append("timeCheck=").append(s).append("&");
+            }
+
+            List<Point> calories = new ArrayList<>();
+            if (caloriesCheck == null) {
+                calories.add(new Point(0, 100));
+                calories.add(new Point(100, 300));
+                calories.add(new Point(300, 1000));
+            } else {
+                for (String s : caloriesCheck) {
+                    switch (Integer.parseInt(s)) {
+                        case 1: calories.add(new Point(0, 100));break;
+                        case 2: calories.add(new Point(100, 300));break;
+                        case 3: calories.add(new Point(300, 1000));break;
+                    }
+                }
+                for (String s : caloriesCheck) url.append("caloriesCheck=").append(s).append("&");
+            }
+
+            for (Recipe recipe : recipeRepository.findAllByTypeIn(typeCheck)) {
+                for (Point m : minutes)
+                    if (recipe.getMinutes() >= m.x && recipe.getMinutes() <= m.y) {
+                        for (Point c : calories)
+                            if (recipe.getCalories() >= c.x && recipe.getCalories() <= c.y) recipes.add(recipe);
+                    }
+            }
+
+            int start = (int) pageable.getOffset();
+            int end = Math.min((start + pageable.getPageSize()), recipes.size());
+            page = new PageImpl<>(new ArrayList<>(recipes).subList(start, end), pageable, recipes.size());
+        }
 
         model.addAttribute("page", page);
         model.addAttribute("search", search);
-        model.addAttribute("cuisines", cuisines);
-        model.addAttribute("types", types);
-        model.addAttribute("url", url);
+        model.addAttribute("url", url.toString());
         return "main";
     }
 

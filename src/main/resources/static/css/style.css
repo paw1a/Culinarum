@@ -1587,7 +1587,7 @@ a.disabled {
 	font-family: FontAwesome;
 }
 .sticker-active-content:before {
-	content: "5";
+	content: "|";
 	font-weight: 600;
 }
 .sticker-next-content:before {
