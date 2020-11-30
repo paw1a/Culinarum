@@ -1,11 +1,9 @@
-package com.example.mpei.controller;
+package com.example.culinarum.controller;
 
-import com.example.mpei.entity.Recipe;
-import com.example.mpei.entity.Type;
-import com.example.mpei.entity.User;
-import com.example.mpei.repository.RecipeRepository;
-import com.example.mpei.repository.TypeRepository;
-import com.example.mpei.repository.UserRepository;
+import com.example.culinarum.entity.Recipe;
+import com.example.culinarum.entity.User;
+import com.example.culinarum.repository.RecipeRepository;
+import com.example.culinarum.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -16,8 +14,10 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -125,6 +125,31 @@ public class MainController {
         return "redirect:/";
     }
 
+    @GetMapping("/edit")
+    public String edit(@RequestParam String id, Model model) {
+        model.addAttribute("recipe", recipeRepository.findById(Long.parseLong(id)).orElse(null));
+        return "edit";
+    }
+
+    @PostMapping("/edit")
+    public String edit(String id, String name, String cuisine, String type,
+                       String recipe, String ingredients, Integer minutes, Integer calories,
+                       MultipartFile image) {
+        Recipe fromDb = recipeRepository.findById(Long.parseLong(id)).orElse(null);
+        if(fromDb != null) {
+            fromDb.setName(name);
+            fromDb.setCuisine(cuisine);
+            fromDb.setType(type);
+            fromDb.setRecipe(recipe);
+            fromDb.setIngredients(ingredients);
+            fromDb.setMinutes(minutes);
+            fromDb.setCalories(calories);
+
+            recipeRepository.save(fromDb);
+        }
+        return "redirect:/";
+    }
+
     @GetMapping("/{id}")
     public String recipe(Model model, @PathVariable Long id) {
         model.addAttribute("recipe", recipeRepository.findById(id).orElse(null));
@@ -137,23 +162,4 @@ public class MainController {
         model.addAttribute("recipes", user.getRecipes());
         return "favorites";
     }
-
-    /*@GetMapping("/test")
-    public String test() {
-        List<Recipe> list = recipeRepository.findAll();
-        Set<String> set = new HashSet<>();
-        list.forEach(recipe -> {
-            set.add(recipe.getType());
-        });
-        set.forEach(s -> typeRepository.save(new Type(s)));
-
-        Set<String> set1 = new HashSet<>();
-        list.forEach(recipe -> {
-            set1.add(recipe.getCuisine());
-        });
-        set1.forEach(s -> cuisineRepository.save(new Cuisine(s)));
-
-        return "main";
-    }*/
-
 }

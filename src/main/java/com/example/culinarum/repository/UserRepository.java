@@ -1,6 +1,6 @@
-package com.example.mpei.repository;
+package com.example.culinarum.repository;
 
-import com.example.mpei.entity.User;
+import com.example.culinarum.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

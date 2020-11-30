@@ -1,4 +1,4 @@
-package com.example.mpei.entity;
+package com.example.culinarum.entity;
 
 import lombok.*;
 
@@ -11,7 +11,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Table(name = "recipe")
-@ToString
+@ToString(of = "name")
 @EqualsAndHashCode(of = "id")
 public class Recipe {
 

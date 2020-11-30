@@ -1,4 +1,4 @@
-package com.example.mpei;
+package com.example.culinarum;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

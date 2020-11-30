@@ -1,7 +1,7 @@
-package com.example.mpei.controller;
+package com.example.culinarum.controller;
 
-import com.example.mpei.entity.User;
-import com.example.mpei.service.UserService;
+import com.example.culinarum.entity.User;
+import com.example.culinarum.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

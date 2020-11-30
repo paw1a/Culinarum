@@ -1,4 +1,4 @@
-package com.example.mpei.entity;
+package com.example.culinarum.entity;
 
 import lombok.*;
 

@@ -1,6 +1,6 @@
-package com.example.mpei.repository;
+package com.example.culinarum.repository;
 
-import com.example.mpei.entity.Recipe;
+import com.example.culinarum.entity.Recipe;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;

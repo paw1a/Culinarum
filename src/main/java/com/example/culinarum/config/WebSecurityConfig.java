@@ -1,6 +1,6 @@
-package com.example.mpei.config;
+package com.example.culinarum.config;
 
-import com.example.mpei.service.UserService;
+import com.example.culinarum.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

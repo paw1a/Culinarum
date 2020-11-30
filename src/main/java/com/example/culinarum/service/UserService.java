@@ -1,8 +1,8 @@
-package com.example.mpei.service;
+package com.example.culinarum.service;
 
-import com.example.mpei.entity.Role;
-import com.example.mpei.entity.User;
-import com.example.mpei.repository.UserRepository;
+import com.example.culinarum.entity.Role;
+import com.example.culinarum.entity.User;
+import com.example.culinarum.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,10 +19,8 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(username);
-
-        if (user == null) {
+        if (user == null)
             throw new UsernameNotFoundException("User not found");
-        }
 
         return user;
     }
@@ -34,7 +32,7 @@ public class UserService implements UserDetailsService {
             return false;
         }
 
-        user.setRole(Role.ROLE_ADMIN);
+        user.setRole(Role.ROLE_USER);
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
