@@ -81,12 +81,12 @@
                     <a class="sticker-drop-content" href="/"></a>
                 </div>
             </div>
-            <div class="sticker-container">
+            <#--<div class="sticker-container">
                 <div class="sticker-download">
                     <a class="sticker-download-content" onclick="CallPrint();"
                        title="Распечатать"></a>
                 </div>
-            </div>
+            </div>-->
         </div>
     </form>
 </div>
