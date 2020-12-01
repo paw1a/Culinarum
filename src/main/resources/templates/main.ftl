@@ -5,14 +5,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\style.css">
-    <link rel="icon" href="css\svg\favicon.svg" type="image/png">
+    <link rel="stylesheet" href="css\basic.css">
+    <link rel="stylesheet" href="css\header.css">
+    <link rel="stylesheet" href="css\search.css">
+    <link rel="stylesheet" href="css\register.css">
+    <link rel="stylesheet" href="css\contentMain.css">
+    <link rel="stylesheet" href="css\stickers.css">
+    <link rel="stylesheet" href="css\barier.css">
+    <link rel="stylesheet" href="css\footer.css">
+    <link rel="stylesheet" href="css\adoptationMain.css">
+    <link rel="icon" href="css\svg\favicon.svg" type="image/png ">
     <title>Culinarum</title>
 </head>
 <body>
@@ -97,7 +104,7 @@
                 </div>
                 <div class="sticker-container-show">
                     <div class="sticker-show">
-                        <a class="sticker-active-content disabled"></a>
+                        <a class="sticker-active-content disabled" href="">${page.number+1}</a>
                     </div>
                 </div>
                 <div class="sticker-container-show">
@@ -115,11 +122,26 @@
     </div>
 </div>
 
+<div id="print-content" hidden>
+    <#list page.content as recipe>
+        <img alt="image" src="https://res.cloudinary.com/miragost/image/upload/v1606145231/culinarum/${recipe.image}">
+        <p><b>Id</b>: ${recipe.id}</p>
+        <p><b>Название рецепта</b>: ${recipe.name}</p>
+        <p><b>Вид блюда</b>: ${recipe.type}</p>
+        <p><b>Кухня</b>: ${recipe.cuisine}</p>
+        <p><b>Время приготовления</b>: ${recipe.minutes}</p>
+        <p><b>Калорийность</b>: ${recipe.calories}</p>
+        <p><b>Ингредиенты</b>: ${recipe.ingredients}</p>
+        <p><b>Рецепт</b>: ${recipe.recipe}</p>
+    </#list>
+</div>
+
 <#include "footer.ftl">
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
 <script src="js\script.js"></script>
 <script src="js\modal.js"></script>
+<script src="js\print.js"></script>
 </body>
 </html>

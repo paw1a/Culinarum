@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\style_my.css">
+    <link rel="stylesheet" href="css\basic.css">
+    <link rel="stylesheet" href="css\header.css">
+    <link rel="stylesheet" href="css\search.css">
+    <link rel="stylesheet" href="css\register.css">
+    <link rel="stylesheet" href="css\contentSaved.css">
+    <link rel="stylesheet" href="css\stickers.css">
+    <link rel="stylesheet" href="css\barier.css">
+    <link rel="stylesheet" href="css\footer.css">
+    <link rel="stylesheet" href="css\adoptationSaved.css">
     <link rel="icon" href="css\svg\favicon.svg" type="image/png ">
-    <script src="js\script.js"></script>
     <title>Culinarum</title>
 </head>
 <body>

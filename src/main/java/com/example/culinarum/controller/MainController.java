@@ -122,7 +122,8 @@ public class MainController {
             user.getRecipes().remove(recipe);
             userRepository.save(user);
         }
-        return "redirect:/";
+        if(user.getRecipes().isEmpty()) return "redirect:/";
+        return "redirect:/favorites";
     }
 
     @GetMapping("/edit")
