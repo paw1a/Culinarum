@@ -2,11 +2,38 @@
 	.content-box {
 		padding: 0 20px;
 	}
-	.list {
-		width: 90%;
+	.recipe-box {
+		display: block;
 	}
-	.icons li {
-		padding: 0 1.5em 0 0;
+	.recipe-first-part {
+		width: 100%;
+		border-right: none;
+	}
+	.recipe-second-part {
+		width: 100%;
+	}
+	.recipe-description {
+		padding: 0em 1.5em 1em 1.5em;
+	}
+	.recipe-time,
+	.recipe-calories {
+		padding: 1em 1em;
+	}
+	.sticker-begin-content,
+	.sticker-back-content,
+	.sticker-active-content,
+	.sticker-next-content,
+	.sticker-end-content {
+		min-width: 30px;
+		width: fit-content;
+		line-height: 12px;
+	}
+	.sticker-begin-content:before,
+	.sticker-back-content:before,
+	.sticker-active-content:before,
+	.sticker-next-content:before,
+	.sticker-end-content:before {
+		font-size: 0.9em;
 	}
 }
 
@@ -44,23 +71,9 @@
 		right: 2px;
 		font-size: 0.75em;
 	}
-	.recipe-first-part {
-		width: 35%;
-	}
-	.recipe-second-part {
-		width: 65%;
-		display: block;
-	}
-	.recipe-description {
-		width: 100%;
-	}
-	.recipe-buttons {
-		width: 100%;
-		display: flex;
-	}
 }
 
-@media(max-width: 576px) {
+@media(max-width: 650px) {
 	header nav .logotype {
 		font-size: 1rem;
 		padding-top: 14px;
@@ -72,19 +85,17 @@
 	.main-page {
 		display: block;
 	}
+	.filtr-box {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
 	.list {
 		width: 100%;
 		margin-left: 0;
 	}
-	.recipe-box {
-		display: block;
-	}
-	.recipe-first-part {
-		width: 100%;
-		border-right: none;
-	}
-	.recipe-second-part {
-		width: 100%;
+	.message {
+			max-height: none;
 	}
 }
 
@@ -97,8 +108,9 @@
 		width: 150px;
 		cursor: pointer;
 	}
-	.icons li {
-		padding: 0 1em 0 0;
+	.tag {
+		padding: 0 10px 0 10px;
+    	font-size: 0.9em;
 	}
 }
 
