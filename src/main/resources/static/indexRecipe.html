@@ -5,20 +5,20 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+   
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-      
       <link rel="stylesheet" href="styles\css\basic.css">
       <link rel="stylesheet" href="styles\css\header.css">
       <link rel="stylesheet" href="styles\css\search.css">
       <link rel="stylesheet" href="styles\css\register.css">
-      <link rel="stylesheet" href="styles\css\contentMain.css">
+      <link rel="stylesheet" href="styles\css\contentRecipe.css">
       <link rel="stylesheet" href="styles\css\stickers.css">
       <link rel="stylesheet" href="styles\css\barier.css">
-      <link rel="stylesheet" href="styles\css\message.css">
       <link rel="stylesheet" href="styles\css\footer.css">
-      <link rel="stylesheet" href="styles\css\adoptationMain.css">
+      <link rel="stylesheet" href="styles\css\adoptationRecipe.css">
       <link rel="icon" href="styles\svg\favicon.svg" type="image/png ">
+      <title>Culinarum</title>
       <title>Culinarum</title>
    </head>
    <body>
@@ -29,7 +29,7 @@
                <form class="search-form" action="">
                   <input class="search-input" type="search"></input>
                   <button class="search-button" type="submit">
-                  <i class="fa fa-search"></i>
+                     <i class="fa fa-search"></i>
                   </button>
                </form>
                <a aria-label="mobile menu" class="nav-toggle">
@@ -44,11 +44,9 @@
                   <li>
                      <a class="sign-up" href="#">Sign-up</a>
                   </li>
-                  <!--
-                     <li>
-                      <a href="index_my.html">Saved</a>
-                     </li>
-                     --> 
+                  <li>
+                     <a href="index_my.html">Saved</a>
+                  </li>
                </ul>
             </nav>
          </div>
@@ -130,62 +128,6 @@
       </div>
       <div class="content-box">
          <div class="main-page">
-            <div class="filtr-box">
-               <ul class="accordion">
-                  <li class="accordion-item">
-                     <input id="s1" class="hide" type="checkbox"></input>
-                     <label for="s1" class="accordion-label">Вид блюда</label>
-                     <ul class="accordion-child">
-                        <li>
-                           <div class="checkbox">
-                              <input type="checkbox" id="checkbox_1"></input>
-                              <label for="checkbox_1">Lorem ipsum</label>
-                           </div>
-                           <div class="checkbox">
-                              <input type="checkbox" id="checkbox_2"></input>
-                              <label for="checkbox_2">Lorem ipsum</label>
-                           </div>
-                        </li>
-                     </ul>
-                  </li>
-                  <li class="accordion-item">
-                     <input id="s2" class="hide" type="checkbox"></input>
-                     <label for="s2" class="accordion-label">Время приготовления</label>
-                     <ul class="accordion-child">
-                        <li>
-                           <div class="checkbox">
-                              <input type="checkbox" id="checkbox_3"></input>
-                              <label for="checkbox_3">Lorem ipsum</label>
-                           </div>
-                        </li>
-                     </ul>
-                  </li>
-                  <li class="accordion-item">
-                     <input id="s3" class="hide" type="checkbox"></input>
-                     <label for="s3" class="accordion-label">Calories</label>
-                     <ul class="accordion-child">
-                        <li>
-                           <div class="checkbox">
-                              <input type="checkbox" id="checkbox_4"></input>
-                              <label for="checkbox_4">Lorem ipsum</label>
-                           </div>
-                        </li>
-                     </ul>
-                  </li>
-               </ul>
-               <div class="filtr-buttons">
-                  <div class="sticker-container-filtr">
-                     <div class="sticker-filtr">
-                        <a class="sticker-filtr-content" href="#"></a>
-                     </div>
-                  </div>
-                  <div class="sticker-container-filtr">
-                     <div class="sticker-drop">
-                        <a class="sticker-drop-content" href="#"></a>
-                     </div>
-                  </div>
-               </div>
-            </div>
             <div class="list">
                <div class="recipe-box">
                   <div class="recipe-first-part">
@@ -204,24 +146,15 @@
                            <a class="tag" href="#">German</a>
                         </div>
                      </div>
-                  </div>
-                  <div class="recipe-second-part">
-                     <div class="recipe-description">
-                        <div class="description-name">
-                           <div class="description-name-content">Description</div>
-                           <div class="name-span"></div>
-                        </div>
-                        <div class="description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                           sit amet ut labore et dolore. 
-                        </div>
-                     </div>
                      <div class="recipe-characterisctics">
                         <div class="recipe-time">
-                           <div class="calories-name"></div>
+                           <div class="calories-name">
+                           </div>
                            <div class="time-text">10 min</div>
                         </div>
                         <div class="recipe-calories">
-                           <div class="calories-name"></div>
+                           <div class="calories-name">
+                           </div>
                            <div class="calories-text">300 cal</div>
                         </div>
                      </div>
@@ -232,47 +165,32 @@
                            </div>
                         </div>
                         <div class="sticker-container">
-                           <div class="sticker-more">
-                              <a class="sticker-more-content" href="indexRecipe.html"></a>
+                           <div class="sticker-download">
+                              <a class="sticker-download-content" href="index_in.html"></a>
                            </div>
                         </div>
                      </div>
                   </div>
-               </div>
-               <div class="message">
-                  <div class="message-image">
-                     <div class="message-image-content"></div>
-                  </div>
-                  <div class="message-content">
-                     <div class="message-title">Сожалеем, но...</div>
-                     <div class="message-text">Запрос не дал результатов</div>
-                     <a class="go-back" href="#">Вернуться</a>
-                  </div>
-               </div>
-               <div class="button-show">
-                  <div class="sticker-container-show">
-                     <div class="sticker-show">
-                        <a class="sticker-begin-content" href="#"></a>
+                  <div class="recipe-second-part">
+                     <div class="recipe-description">
+                        <div class="description-name">
+                           <div class="description-name-content">Operations</div>
+                           <div class="name-span"></div>
+                        </div>
+                        <div class="description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                           sit amet ut labore et dolore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                           sit amet ut labore et dolore.
+                        </div>
                      </div>
-                  </div>
-                  <div class="sticker-container-show">
-                     <div class="sticker-show">
-                        <a class="sticker-back-content" href="#"></a>
-                     </div>
-                  </div>
-                  <div class="sticker-container-show">
-                     <div class="sticker-show">
-                        <a class="sticker-active-content" href="#">20</a>
-                     </div>
-                  </div>
-                  <div class="sticker-container-show">
-                     <div class="sticker-show">
-                        <a class="sticker-next-content" href="#"></a>
-                     </div>
-                  </div>
-                  <div class="sticker-container-show">
-                     <div class="sticker-show">
-                        <a class="sticker-end-content" href="#"></a>
+                     <div class="recipe-description">
+                        <div class="description-name">
+                           <div class="description-name-content">Ingredients</div>
+                           <div class="name-span"></div>
+                        </div>
+                        <div class="ingredients-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                           sit amet ut labore et dolore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                           sit amet ut labore et dolore.
+                        </div>
                      </div>
                   </div>
                </div>
@@ -282,13 +200,12 @@
       <div class="gradient-barier"></div>
       <footer>
          <div class="autograph">
-            <div class="made-by">made by
-            </div>
-            <div class="authors">
-               <div class="f-p">foxleren & paw1a</div>
-               <div class="frontend">Frontend</div>
-               <div class="backend">Backend</div>
-            </div>
+            <div class="made-by">made by</div>
+         <div class="authors">
+            <div class="f-p">foxleren & paw1a</div>
+            <div class="frontend">Frontend</div>
+            <div class="backend">Backend</div>
+         </div>
          </div>
       </footer>
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>

@@ -218,6 +218,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	text-align: center;
+	width: 100%;
 }
 
 .sticker-container-show {
@@ -291,8 +292,8 @@
 .sticker-active-content,
 .sticker-next-content,
 .sticker-end-content {
-	height: 40px;
-	width: 40px;
+	min-width: 40px;
+    width: fit-content;
 	transition: 0.3s linear;
 	font-size: 1.4em;
 	font-weight: 500;
@@ -310,20 +311,6 @@
 	border-color: #2489cf;
 }
 
-.sticker-begin-content,
-.sticker-back-content, .sticker-active-content,
-.sticker-next-content, .sticker-end-content {
-	height: 30px;
-	width: 30px;
-	line-height: 12px;
-}
-.sticker-begin-content:before,
-.sticker-back-content:before,
-.sticker-active-content:before,
-.sticker-next-content:before,
-.sticker-end-content:before {
-	font-size: 0.9em;
-}
 .sticker-begin-content:before,
 .sticker-back-content:before {
 	left: -1px;
