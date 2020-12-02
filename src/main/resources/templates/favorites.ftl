@@ -8,16 +8,17 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\basic.css">
-    <link rel="stylesheet" href="css\header.css">
-    <link rel="stylesheet" href="css\search.css">
-    <link rel="stylesheet" href="css\register.css">
-    <link rel="stylesheet" href="css\contentSaved.css">
-    <link rel="stylesheet" href="css\stickers.css">
-    <link rel="stylesheet" href="css\barier.css">
-    <link rel="stylesheet" href="css\footer.css">
-    <link rel="stylesheet" href="css\adoptationSaved.css">
-    <link rel="icon" href="css\svg\favicon.svg" type="image/png ">
+    <link rel="stylesheet" href="styles\css\basic.css">
+    <link rel="stylesheet" href="styles\css\header.css">
+    <link rel="stylesheet" href="styles\css\search.css">
+    <link rel="stylesheet" href="styles\css\register.css">
+    <link rel="stylesheet" href="styles\css\contentSaved.css">
+    <link rel="stylesheet" href="styles\css\stickers.css">
+    <link rel="stylesheet" href="styles\css\barier.css">
+    <link rel="stylesheet" href="styles\css\message.css">
+    <link rel="stylesheet" href="styles\css\footer.css">
+    <link rel="stylesheet" href="styles\css\adoptationSaved.css">
+    <link rel="icon" href="styles\svg\favicon.svg" type="image/png ">
     <title>Culinarum</title>
 </head>
 <body>
@@ -25,9 +26,14 @@
 <div class="content-box">
     <div class="main-page">
         <div class="list">
-            <div class="saved-container">
-                <div class="saved"><div class="saved-name">Избранное</div></div>
-            </div>
+            <#if recipes?size == 0>
+                <#include "message.ftl">
+                <#else>
+                    <div class="saved-container">
+                        <div class="saved"><div class="saved-name">Избранное</div></div>
+                    </div>
+            </#if>
+
             <#list recipes as recipe>
                 <div class="recipe-box">
                     <div class="recipe-first-part">

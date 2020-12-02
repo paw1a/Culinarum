@@ -110,7 +110,7 @@ public class MainController {
             user.getRecipes().add(recipe);
             userRepository.save(user);
         }
-        return "redirect:/";
+        return "redirect:/#"+id;
     }
 
     @GetMapping("/remove/{id}")

@@ -10,16 +10,16 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\basic.css">
-    <link rel="stylesheet" href="css\header.css">
-    <link rel="stylesheet" href="css\search.css">
-    <link rel="stylesheet" href="css\register.css">
-    <link rel="stylesheet" href="css\contentRecipe.css">
-    <link rel="stylesheet" href="css\stickers.css">
-    <link rel="stylesheet" href="css\barier.css">
-    <link rel="stylesheet" href="css\footer.css">
-    <link rel="stylesheet" href="css\adoptationRecipe.css">
-    <link rel="icon" href="css\svg\favicon.svg" type="image/png ">
+    <link rel="stylesheet" href="styles\css\basic.css">
+    <link rel="stylesheet" href="styles\css\header.css">
+    <link rel="stylesheet" href="styles\css\search.css">
+    <link rel="stylesheet" href="styles\css\register.css">
+    <link rel="stylesheet" href="styles\css\contentRecipe.css">
+    <link rel="stylesheet" href="styles\css\stickers.css">
+    <link rel="stylesheet" href="styles\css\barier.css">
+    <link rel="stylesheet" href="styles\css\footer.css">
+    <link rel="stylesheet" href="styles\css\adoptationRecipe.css">
+    <link rel="icon" href="styles\svg\favicon.svg" type="image/png ">
     <title>Culinarum</title>
 </head>
 <body>
@@ -39,10 +39,10 @@
                     </div>
                     <div class="recipe-tags">
                         <div class="tag-content">
-                            <a class="tag" href="#">${recipe.cuisine}</a>
+                            <a class="tag" href="/?cuisineCheck=${recipe.cuisine}">${recipe.cuisine}</a>
                         </div>
                         <div class="tag-content">
-                            <a class="tag" href="#">${recipe.type}</a>
+                            <a class="tag" href="/?typeCheck=${recipe.type}">${recipe.type}</a>
                         </div>
                     </div>
                     <div class="recipe-characterisctics">

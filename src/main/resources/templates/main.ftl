@@ -10,16 +10,17 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\basic.css">
-    <link rel="stylesheet" href="css\header.css">
-    <link rel="stylesheet" href="css\search.css">
-    <link rel="stylesheet" href="css\register.css">
-    <link rel="stylesheet" href="css\contentMain.css">
-    <link rel="stylesheet" href="css\stickers.css">
-    <link rel="stylesheet" href="css\barier.css">
-    <link rel="stylesheet" href="css\footer.css">
-    <link rel="stylesheet" href="css\adoptationMain.css">
-    <link rel="icon" href="css\svg\favicon.svg" type="image/png ">
+    <link rel="stylesheet" href="styles\css\basic.css">
+    <link rel="stylesheet" href="styles\css\header.css">
+    <link rel="stylesheet" href="styles\css\search.css">
+    <link rel="stylesheet" href="styles\css\register.css">
+    <link rel="stylesheet" href="styles\css\contentMain.css">
+    <link rel="stylesheet" href="styles\css\stickers.css">
+    <link rel="stylesheet" href="styles\css\barier.css">
+    <link rel="stylesheet" href="styles\css\message.css">
+    <link rel="stylesheet" href="styles\css\footer.css">
+    <link rel="stylesheet" href="styles\css\adoptationMain.css">
+    <link rel="icon" href="styles\svg\favicon.svg" type="image/png ">
     <title>Culinarum</title>
 </head>
 <body>
@@ -30,8 +31,9 @@
     <div class="main-page">
         <#include "filter.ftl">
         <div class="list">
+            <#if page.content?size == 0><#include "message.ftl"></#if>
             <#list page.content as recipe>
-                <div class="recipe-box">
+                <div class="recipe-box" id="${recipe.id}">
                     <div class="recipe-first-part">
                         <div class="dish-name">
                             <div class="dish-name-content">${recipe.name}</div>
@@ -45,7 +47,7 @@
                                 <a class="tag" href="#">${recipe.cuisine}</a>
                             </div>
                             <div class="tag-content">
-                                <a class="tag" href="#">${recipe.type}</a>
+                                <a class="tag" href="/?typeCheck=${recipe.type}">${recipe.type}</a>
                             </div>
                         </div>
                     </div>
@@ -91,33 +93,35 @@
                 </div>
             </#list>
 
-            <div class="button-show">
-                <div class="sticker-container-show">
-                    <div class="sticker-show">
-                        <a class="sticker-begin-content <#if page.number == 0>disabled</#if>" href="/${url}page=0"></a>
+            <#if (page.totalPages > 1)>
+                <div class="button-show">
+                    <div class="sticker-container-show">
+                        <div class="sticker-show">
+                            <a class="sticker-begin-content <#if page.number == 0>disabled</#if>" href="/${url}page=0"></a>
+                        </div>
+                    </div>
+                    <div class="sticker-container-show">
+                        <div class="sticker-show">
+                            <a class="sticker-back-content <#if page.number == 0>disabled</#if>" href="/${url}page=${page.number-1}"></a>
+                        </div>
+                    </div>
+                    <div class="sticker-container-show">
+                        <div class="sticker-show">
+                            <a class="sticker-active-content disabled" href="">${page.number+1}</a>
+                        </div>
+                    </div>
+                    <div class="sticker-container-show">
+                        <div class="sticker-show">
+                            <a class="sticker-next-content <#if page.number == page.totalPages-1>disabled</#if>" href="/${url}page=${page.number+1}"></a>
+                        </div>
+                    </div>
+                    <div class="sticker-container-show">
+                        <div class="sticker-show">
+                            <a class="sticker-end-content <#if page.number == page.totalPages-1>disabled</#if>" href="/${url}page=${page.totalPages-1}"></a>
+                        </div>
                     </div>
                 </div>
-                <div class="sticker-container-show">
-                    <div class="sticker-show">
-                        <a class="sticker-back-content <#if page.number == 0>disabled</#if>" href="/${url}page=${page.number-1}"></a>
-                    </div>
-                </div>
-                <div class="sticker-container-show">
-                    <div class="sticker-show">
-                        <a class="sticker-active-content disabled" href="">${page.number+1}</a>
-                    </div>
-                </div>
-                <div class="sticker-container-show">
-                    <div class="sticker-show">
-                        <a class="sticker-next-content <#if page.number == page.totalPages-1>disabled</#if>" href="/${url}page=${page.number+1}"></a>
-                    </div>
-                </div>
-                <div class="sticker-container-show">
-                    <div class="sticker-show">
-                        <a class="sticker-end-content <#if page.number == page.totalPages-1>disabled</#if>" href="/${url}page=${page.totalPages-1}"></a>
-                    </div>
-                </div>
-            </div>
+            </#if>
         </div>
     </div>
 </div>
