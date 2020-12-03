@@ -15,6 +15,7 @@
       <link rel="stylesheet" href="styles\css\search.css">
       <link rel="stylesheet" href="styles\css\register.css">
       <link rel="stylesheet" href="styles\css\contentEdit.css">
+      <link rel="stylesheet" href="styles\css\tags.css">    
       <link rel="stylesheet" href="styles\css\stickers.css">
       <link rel="stylesheet" href="styles\css\barier.css">
       <link rel="stylesheet" href="styles\css\footer.css">

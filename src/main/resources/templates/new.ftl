@@ -9,11 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+      
     <link rel="stylesheet" href="styles\css\basic.css">
     <link rel="stylesheet" href="styles\css\header.css">
     <link rel="stylesheet" href="styles\css\search.css">
     <link rel="stylesheet" href="styles\css\register.css">
     <link rel="stylesheet" href="styles\css\contentEdit.css">
+    <link rel="stylesheet" href="styles\css\tags.css">    
     <link rel="stylesheet" href="styles\css\stickers.css">
     <link rel="stylesheet" href="styles\css\barier.css">
     <link rel="stylesheet" href="styles\css\footer.css">
