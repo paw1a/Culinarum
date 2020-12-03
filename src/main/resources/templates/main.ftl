@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="styles\css\message.css">
     <link rel="stylesheet" href="styles\css\footer.css">
     <link rel="stylesheet" href="styles\css\adoptationMain.css">
-    <link rel="icon" href="styles\svg\favicon.svg" type="image/png ">
+    <link rel="icon" href="styles\svg\favicon.svg" type="image/png">
     <title>Culinarum</title>
 </head>
 <body>
@@ -29,7 +29,14 @@
 <#include "modal.ftl">
 <div class="content-box">
     <div class="main-page">
-        <#include "filter.ftl">
+        <div class="filtr-box">
+            <#include "filter.ftl">
+            <div class="extra-buttons">
+                <#if s.isAdmin><a class="sticker-add-recipe" href="/new">Добавить рецепт</a></#if>
+                <a class="sticker-print-all" onclick="CallPrint()">Печать всех рецептов</a>
+            </div>
+        </div>
+
         <div class="list">
             <#if page.content?size == 0><#include "message.ftl"></#if>
             <#list page.content as recipe>

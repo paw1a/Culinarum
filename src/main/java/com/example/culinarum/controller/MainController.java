@@ -1,15 +1,20 @@
 package com.example.culinarum.controller;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.example.culinarum.entity.Recipe;
 import com.example.culinarum.entity.User;
 import com.example.culinarum.repository.RecipeRepository;
 import com.example.culinarum.repository.UserRepository;
+import org.cloudinary.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +22,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.List;
 
@@ -132,21 +139,38 @@ public class MainController {
         return "edit";
     }
 
-    @PostMapping("/edit")
-    public String edit(String id, String name, String cuisine, String type,
+    @GetMapping("/new")
+    public String newRecipe() {
+        return "new";
+    }
+
+    @PostMapping("/update")
+    public String update(String id, String name, String cuisine, String type,
                        String recipe, String ingredients, Integer minutes, Integer calories,
                        MultipartFile image) {
-        Recipe fromDb = recipeRepository.findById(Long.parseLong(id)).orElse(null);
-        if(fromDb != null) {
-            fromDb.setName(name);
-            fromDb.setCuisine(cuisine);
-            fromDb.setType(type);
-            fromDb.setRecipe(recipe);
-            fromDb.setIngredients(ingredients);
-            fromDb.setMinutes(minutes);
-            fromDb.setCalories(calories);
 
-            recipeRepository.save(fromDb);
+        Recipe updatedRecipe;
+        if(id != null && !id.isEmpty())
+            updatedRecipe = recipeRepository.findById(Long.parseLong(id)).orElse(null);
+        else updatedRecipe = new Recipe();
+
+        if(updatedRecipe != null) {
+            updatedRecipe.setName(name);
+            updatedRecipe.setCuisine(cuisine);
+            updatedRecipe.setType(type);
+            updatedRecipe.setRecipe(recipe);
+            updatedRecipe.setIngredients(ingredients);
+            updatedRecipe.setMinutes(minutes);
+            updatedRecipe.setCalories(calories);
+
+            Cloudinary cloudinary = new Cloudinary("cloudinary://535661528615272:aHyZLIYT5rpMmkUljmewhfZlpuk@miragost");
+            try {
+                Map response = cloudinary.uploader().upload(image.getBytes(), ObjectUtils.asMap("folder", "culinarum"));
+                updatedRecipe.setImage(response.get("public_id").toString().replace(
+                        "culinarum/", "") + "." + response.get("format").toString());
+            } catch(Exception e) { System.err.println("Upload failed"); }
+
+            recipeRepository.save(updatedRecipe);
         }
         return "redirect:/";
     }
@@ -162,5 +186,13 @@ public class MainController {
         user = userRepository.findById(user.getId()).orElse(null);
         model.addAttribute("recipes", user.getRecipes());
         return "favorites";
+    }
+
+    @GetMapping("/test")
+    public void test() {
+        for (int i = 0; i < 100; i++) {
+            Recipe recipe = new Recipe();
+            recipeRepository.save(recipe);
+        }
     }
 }

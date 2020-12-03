@@ -11,3 +11,12 @@ function CallPrint() {
     myFrame.parentNode.removeChild(myFrame);
     window.focus();
 }
+
+function PreviewImage() {
+    let oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("upload-input").files[0]);
+
+    oFReader.onload = function (oFREvent) {
+        document.getElementById("uploadPreview").src = oFREvent.target.result;
+    };
+}

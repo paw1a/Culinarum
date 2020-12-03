@@ -28,21 +28,22 @@
 <div class="content-box">
          <div class="main-page">
             <div class="list">
-               <form action="/edit" enctype="multipart/form-data" method="post">
+               <form action="/update" enctype="multipart/form-data" method="post">
                   <div class="recipe-box">
-                        <input type="hidden" value="${recipe.id}" name="id">
+                     <input type="hidden" value="${recipe.id}" name="id">
                      <div class="recipe-first-part">
                         <div class="dish-name">
-                           <textarea type="text" maxlength="50" name="name" placeholder="Название рецепта"></textarea>
+                           <textarea maxlength="50" required name="name" placeholder="Название рецепта">${recipe.name}</textarea>
                            <div class="name-span"></div>
                         </div>
                         <div class="dish-photo">
-                           <img src="styles\images\demo.jpg">
+                           <img alt="Фото не найдено" id="uploadPreview"
+                                src="https://res.cloudinary.com/miragost/image/upload/v1606145231/culinarum/${recipe.image}">
                         </div>
-                        <div class="upload-file">
-                        </div>
+                        <div class="upload-file"></div>
                         <div class="edit-image">
-                           <input type="file" name="file" id="upload-input" class="upload-file-input" multiple>
+                           <input type="file" required name="image" id="upload-input" accept="image/*"
+                                  onchange="PreviewImage();" class="upload-file-input">
                            <label class="new-upload-file-input" for="upload-input">
                               <div class="upload-file-status">файл не выбран</div>
                               <div class="upload-file-button">Выбрать</div>
@@ -50,22 +51,22 @@
                         </div>
                         <div class="recipe-tags">
                            <div class="tag-content">
-                              <textarea type="text" maxlength="40" name="cuisine" placeholder="Кухня мира"></textarea>
+                              <textarea maxlength="40" required name="cuisine" placeholder="Кухня мира">${recipe.cuisine}</textarea>
                            </div>
                            <div class="tag-content">
-                              <textarea type="text" maxlength="40" name="type" placeholder="Вид блюда"></textarea>
+                              <textarea maxlength="40" required name="type" placeholder="Вид блюда">${recipe.type}</textarea>
                            </div>
                         </div>
                         <div class="recipe-characterisctics">
                            <div class="recipe-time">
                               <div class="calories-name">
                               </div>
-                              <textarea type="number" maxlength="5" name="minutes" placeholder="Время приготовления"></textarea>
+                              <textarea maxlength="5" required name="minutes" placeholder="Время приготовления">${recipe.minutes}</textarea>
                            </div>
                            <div class="recipe-calories">
                               <div class="calories-name">
                               </div>
-                              <textarea type="number" maxlength="5" name="calories" placeholder="Количество калорий"></textarea>
+                              <textarea maxlength="5" required name="calories" placeholder="Количество калорий">${recipe.calories}</textarea>
                            </div>
                         </div>
                      </div>
@@ -75,14 +76,14 @@
                               <div class="description-name-content">Приготовление</div>
                               <div class="name-span"></div>
                            </div>
-                           <textarea type="text" name="recipe" placeholder="Введите рецепт приготовления"></textarea>
+                           <textarea name="recipe" required placeholder="Введите рецепт приготовления">${recipe.recipe}</textarea>
                         </div>
                         <div class="recipe-description">
                            <div class="description-name">
                               <div class="description-name-content">Ингредиенты</div>
                               <div class="name-span"></div>
                            </div>
-                           <textarea type="text" name="ingredients" placeholder="Введите ингредиенты"></textarea>
+                           <textarea name="ingredients" required placeholder="Введите ингредиенты">${recipe.ingredients}</textarea>
                         </div>
                         <div class="save-edit">
                            <button type="submit">Сохранить</button>
@@ -98,5 +99,6 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
 <script src="js\script.js"></script>
 <script src="js\modal.js"></script>
+<script src="js\print.js"></script>
 </body>
 </html>
