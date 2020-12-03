@@ -89,4 +89,8 @@
             </div>-->
         </div>
     </form>
+     <div class="extra-buttons">
+        <a class="sticker-add-recipe" href="#">Добавить рецепт</a>
+        <a class="sticker-print-all" href="#">Печать всех рецептов</a>
+    </div>
 </div>
