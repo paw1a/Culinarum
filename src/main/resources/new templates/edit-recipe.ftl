@@ -1,0 +1,1 @@
+ <a class="sticker-edit"></a>

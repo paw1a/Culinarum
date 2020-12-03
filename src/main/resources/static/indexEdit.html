@@ -7,11 +7,13 @@
       <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+      
       <link rel="stylesheet" href="styles\css\basic.css">
       <link rel="stylesheet" href="styles\css\header.css">
       <link rel="stylesheet" href="styles\css\search.css">
       <link rel="stylesheet" href="styles\css\register.css">
       <link rel="stylesheet" href="styles\css\contentEdit.css">
+      <link rel="stylesheet" href="styles\css\tags.css">    
       <link rel="stylesheet" href="styles\css\stickers.css">
       <link rel="stylesheet" href="styles\css\barier.css">
       <link rel="stylesheet" href="styles\css\footer.css">
@@ -25,16 +27,14 @@
             <div class="list">
                <form action="/edit" enctype="multipart/form-data" method="post">
                   <div class="recipe-box">
-                     <!--
-                        <input type="hidden" value="${recipe.id}" name="id"></input>
-                        --> 
+                        <input type="hidden" value="${recipe.id}" name="id">
                      <div class="recipe-first-part">
                         <div class="dish-name">
                            <textarea type="text" maxlength="50" name="name" placeholder="Название рецепта"></textarea>
                            <div class="name-span"></div>
                         </div>
                         <div class="dish-photo">
-                           <img src="styles\images\pizza.jpg">
+                           <img src="styles\images\demo.jpg">
                         </div>
                         <div class="upload-file">
                         </div>
@@ -50,7 +50,16 @@
                               <textarea type="text" maxlength="40" name="cuisine" placeholder="Кухня мира"></textarea>
                            </div>
                            <div class="tag-content">
-                              <textarea type="text" maxlength="40" name="type" placeholder="Вид блюда"></textarea>
+                              <select name="select"> 
+                                 <option disabled selected>Тип блюда</option>
+                                 <option value="">Первые блюда</option>
+                                 <option value="">Вторые блюда</option>
+                                 <option value="">Напитки</option> 
+                                 <option value="">Салаты</option> 
+                              </select>
+                             <!--
+                                <textarea type="text" maxlength="40" name="type" placeholder="Вид блюда"></textarea>
+                             --> 
                            </div>
                         </div>
                         <div class="recipe-characterisctics">

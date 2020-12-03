@@ -1,11 +1,95 @@
-/*--Plus&More--*/
+/*--Filtr buttons--*/
 
+.filtr-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+	padding: 0 5px;
+}
+
+.sticker-container-filtr {
+	padding: 1.5em 0.5em;
+	width: 50%;
+	text-align: center;
+}
+
+.sticker-filtr-content,
+.sticker-drop-content {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	height: 50px;
+	width: 50px;
+	color: black;
+	transition: 0.2s linear;
+	font-size: 1.4em;
+	font-weight: 500;
+	line-height: 32px;
+	background: rgba(0, 0, 0, .01);
+	border: 3px solid rgba(0, 0, 0, .075);
+	border-radius: 25px;
+}
+
+.sticker-filtr-content:before {
+	display: block;
+	color: rgba(0, 0, 0, .075);
+	padding: 7px;
+	position: relative;
+	margin: 0 auto;
+	transition: 0.2s linear;
+	font-size: 1.5em;
+	content: "\f0b0";
+	font-family: FontAwesome;
+}
+
+.sticker-drop-content:before {
+	display: block;
+	color: rgba(0, 0, 0, .075);
+	padding: 7px;
+	position: relative;
+	margin: 0 auto;
+	transition: 0.2s linear;
+	font-size: 1.5em;
+	content: "\f014";
+	font-family: FontAwesome;
+}
+
+.sticker-drop,
+.sticker-filtr {
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.sticker-filtr:hover .sticker-filtr-content:before,
+.sticker-drop:hover .sticker-drop-content:before {
+	color: #2489cf;
+}
+
+.sticker-filtr:hover .sticker-filtr-content,
+.sticker-drop:hover .sticker-drop-content {
+	border-color: #2489cf;
+}
+
+
+/*--Plus&More--*/
 
 .sticker-plus-content,
 .sticker-more-content {
 	display: block;
 	margin: 0 auto;
 	position: relative;
+	height: 50px;
+	width: 50px;
+	color: black;
+	transition: 0.2s linear;
+	font-size: 1.4em;
+	font-weight: 500;
+	line-height: 32px;
+	background: rgba(0, 0, 0, .01);
+	border: 3px solid rgba(0, 0, 0, .075);
+	border-radius: 25px;
 }
 
 .sticker-plus-content:before {
@@ -14,6 +98,7 @@
 	padding: 7px 10px;
 	position: relative;
 	margin: 0 auto;
+	transition: 0.2s linear;
 	font-size: 1.5em;
 	content: "\f097";
 	font-family: FontAwesome;
@@ -25,6 +110,7 @@
 	padding: 6px;
 	position: relative;
 	margin: 0 auto;
+	transition: 0.2s linear;
 	font-size: 1.5em;
 	content: "\f02d";
 	font-family: FontAwesome;
@@ -42,43 +128,28 @@
 	margin: 0 auto;
 }
 
-.sticker-more-content,
-.sticker-plus-content {
+.sticker-more:hover .sticker-more-content,
+.sticker-plus:hover .sticker-plus-content {
+	border-color: #2489cf;
+}
+
+
+/*-Download button-*/
+
+.sticker-download-content {
+	display: block;
+	margin: 0 auto;
+	position: relative;
 	height: 50px;
 	width: 50px;
 	color: black;
-	transition: 0.3s linear;
+	transition: 0.2s linear;
 	font-size: 1.4em;
 	font-weight: 500;
 	line-height: 32px;
 	background: rgba(0, 0, 0, .01);
 	border: 3px solid rgba(0, 0, 0, .075);
 	border-radius: 25px;
-}
-
-.sticker-more:hover .sticker-more-content,
-.sticker-plus:hover .sticker-plus-content {
-	border-color: #2489cf;
-}
-
-/*--*/
-
-.sticker-plus-content,
-.sticker-download-content {
-	display: block;
-	margin: 0 auto;
-	position: relative;
-}
-
-.sticker-plus-content:before {
-	display: block;
-	color: rgba(0, 0, 0, .075);
-	padding: 7px 10px;
-	position: relative;
-	margin: 0 auto;
-	font-size: 1.5em;
-	content: "\f097";
-	font-family: FontAwesome;
 }
 
 .sticker-download-content:before {
@@ -87,59 +158,43 @@
 	padding: 6px;
 	position: relative;
 	margin: 0 auto;
+	transition: 0.2s linear;
 	font-size: 1.4em;
-	content: "\f016";
+	content: "\f02f";
 	font-family: FontAwesome;
 }
 
-.sticker-plus:hover .sticker-plus-content:before,
 .sticker-download:hover .sticker-download-content:before {
 	color: #2489cf;
 }
 
-.sticker-download,
-.sticker-plus {
+.sticker-download {
 	width: 50px;
 	height: 50px;
 	margin: 0 auto;
 }
 
-.sticker-download-content,
-.sticker-plus-content {
+.sticker-download:hover .sticker-download-content {
+	border-color: #2489cf;
+}
+
+
+/*--Delete button--*/
+
+.sticker-delete-content {
+	display: block;
+	margin: 0 auto;
+	position: relative;
 	height: 50px;
 	width: 50px;
 	color: black;
-	transition: 0.3s linear;
+	transition: 0.2s linear;
 	font-size: 1.4em;
 	font-weight: 500;
 	line-height: 32px;
 	background: rgba(0, 0, 0, .01);
 	border: 3px solid rgba(0, 0, 0, .075);
 	border-radius: 25px;
-}
-
-.sticker-download:hover .sticker-download-content,
-.sticker-plus:hover .sticker-plus-content {
-	border-color: #2489cf;
-}
-
-/*--More&Delete*/
-.sticker-more-content,
-.sticker-delete-content {
-	display: block;
-	margin: 0 auto;
-	position: relative;
-}
-
-.sticker-more-content:before {
-	display: block;
-	color: rgba(0, 0, 0, .075);
-	padding: 6px;
-	position: relative;
-	margin: 0 auto;
-	font-size: 1.5em;
-	content: "\f02d";
-	font-family: FontAwesome;
 }
 
 .sticker-delete-content:before {
@@ -148,77 +203,50 @@
 	padding: 6.5px 6px;
 	position: relative;
 	margin: 0 auto;
+	transition: 0.2s linear;
 	font-size: 1.6em;
 	content: "\f05e";
 	font-family: FontAwesome;
 }
 
-.sticker-more:hover .sticker-more-content:before,
 .sticker-delete:hover .sticker-delete-content:before {
 	color: #2489cf;
 }
 
-.sticker-delete,
 .sticker-more {
 	width: 50px;
 	height: 50px;
 	margin: 0 auto;
 }
 
-.sticker-delete-content,
-.sticker-more-content {
-	height: 50px;
-	width: 50px;
-	color: black;
-	transition: 0.3s linear;
-	font-size: 1.4em;
-	font-weight: 500;
-	line-height: 32px;
-	background: rgba(0, 0, 0, .01);
-	border: 3px solid rgba(0, 0, 0, .075);
-	border-radius: 25px;
+.sticker-delete:hover .sticker-delete-content {
+	border-color: #2489cf;
 }
 
-.sticker-delete:hover .sticker-delete-content,
-.sticker-more:hover .sticker-more-content {
-	border-color: #2489cf;
-}.sticker-more:hover .sticker-more-content:before,
- .sticker-delete:hover .sticker-delete-content:before {
-	 color: #2489cf;
- }
+.sticker-delete:hover .sticker-delete-content:before {
+	color: #2489cf;
+}
 
-.sticker-delete,
-.sticker-more {
+.sticker-delete {
 	width: 50px;
 	height: 50px;
 	margin: 0 auto;
 }
 
-.sticker-delete-content,
-.sticker-more-content {
-	height: 50px;
-	width: 50px;
-	color: black;
-	transition: 0.3s linear;
-	font-size: 1.4em;
-	font-weight: 500;
-	line-height: 32px;
-	background: rgba(0, 0, 0, .01);
-	border: 3px solid rgba(0, 0, 0, .075);
-	border-radius: 25px;
-}
-
-.sticker-delete:hover .sticker-delete-content,
-.sticker-more:hover .sticker-more-content {
+.sticker-delete:hover .sticker-delete-content {
 	border-color: #2489cf;
 }
+
+
 /*--Show--*/
+
 .button-show {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	text-align: center;
-	width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .sticker-container-show {
@@ -236,6 +264,7 @@
 	margin: 0 auto;
 	position: relative;
 }
+
 .sticker-begin-content:before,
 .sticker-back-content:before,
 .sticker-active-content:before,
@@ -254,30 +283,31 @@
 	content: "\f100";
 	font-family: FontAwesome;
 }
+
 .sticker-back-content:before {
 	content: "\f104";
 	font-family: FontAwesome;
 }
+
 .sticker-active-content {
 	display: block;
-    color: rgba(0, 0, 0, .075);
-    padding: 6px 5px;
-    position: relative;
-    margin: 0 auto;
-    font-weight: 600;
-    font-size: 1.2em;
+	color: rgba(0, 0, 0, .075);
+	padding: 6px 5px;
+	position: relative;
+	margin: 0 auto;
+	font-weight: 600;
+	font-size: 1.2em;
 }
+
 .sticker-next-content:before {
 	content: "\f105";
 	font-family: FontAwesome;
 }
-.sticker-end-content:before {
 
+.sticker-end-content:before {
 	content: "\f101";
 	font-family: FontAwesome;
 }
-
-
 
 .sticker-show:hover .sticker-begin-content:before,
 .sticker-show:hover .sticker-back-content:before,
@@ -293,8 +323,8 @@
 .sticker-next-content,
 .sticker-end-content {
 	min-width: 40px;
-    width: fit-content;
-	transition: 0.3s linear;
+	width: fit-content;
+	transition: 0.2s linear;
 	font-size: 1.4em;
 	font-weight: 500;
 	line-height: 23px;
@@ -315,94 +345,123 @@
 .sticker-back-content:before {
 	left: -1px;
 }
+
 .sticker-next-content:before,
 .sticker-end-content:before {
 	left: 1px;
 }
 
 
+/*--Disabled link--*/
 
 a.disabled {
 	pointer-events: none;
 	cursor: default;
-	}
+}
 
 
-
-
-
-/**/
+/*--Upload button--*/
 
 .upload-file {
 	width: 100%;
 	position: relative;
 	margin: 15px 0;
 	text-align: center;
-  }
-  
-  .upload-file-input {
+}
+
+.upload-file-input {
 	opacity: 0;
 	visibility: hidden;
 	position: absolute;
-  }
-  
-  .new-upload-file-input {
+}
+
+.new-upload-file-input {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	cursor: pointer;
-  }
-  
-  .upload-file-status {
-	  order: 2;
-	width: 65%;
-	padding: 0 20px 0 20px;
-    font-size: 0.9em;
+}
+
+.upload-file-status {
+    order: 2;
+    width: 65%;
+    padding: 0 10px 0 10px;
+    font-size: 0.8em;
     font-weight: 500;
     line-height: 32px;
     border-left: none;
     border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border: 1px solid #81cbfb;
-  }
-  
-  .upload-file-button {
-	  order: 1;
-	width: 35%;
-	padding: 0 20px 0 20px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #81cbfb;
+}
+
+.upload-file-button {
+    order: 1;
+    width: 35%;
+    padding: 0 10px 0 10px;
     background: #81cbfb;
     color: #fff;
-    transition: 0.3s linear;
-    font-size: 1.1em;
+    transition: 0.2s linear;
+    font-size: 0.95em;
     font-weight: 500;
     line-height: 32px;
     border: none;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-  }
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
 
-  .extra-buttons {
-	  display: block;
-	  width: 100%;
-  }
+.upload-file-button:hover {
+	background: #37acf9;
+}
 
-  .sticker-add-recipe,.sticker-print-all {
-	padding: 0 20px 0 20px;
-    transition: 0.3s linear;
-    font-size: 1.4em;
-    font-weight: 600;
+
+/*--Edit button--*/
+
+.sticker-edit {
+	position: absolute;
+	width: 38px;
+	height: 38px;
+	display: flex;
+	float: right;
+	border-radius: 25px;
+	padding: 6px;
+	transition: 0.2s linear;
+}
+
+.sticker-edit:before {
+	display: flex;
+	color: rgba(0, 0, 0, .3);
+	float: right;
+	font-size: 1.5em;
+	content: "\f085";
+	font-family: FontAwesome;
+}
+
+.sticker-edit:hover {
+	cursor: pointer;
+	background: rgba(0, 0, 0, .07);
+}
+
+
+/*--Save edit button--*/
+
+.save-edit {
+	text-align: center;
+	padding: 1em 1em;
+}
+
+.save-edit button {
+    padding: 0 15px 0 15px;
+    background: #81cbfb;
+    color: #fff;
+    transition: 0.2s linear;
+    font-size: 1.2em;
+    font-weight: 500;
     line-height: 32px;
-    float: left;
-    margin-bottom: 20px;
+    border: none;
     border-radius: 10px;
-    background: rgba(0, 0, 0, .01);
-    border: 2px solid rgba(0, 0, 0, .075);
-    color: rgba(0, 0, 0, .1);
-  }
-
-  .sticker-add-recipe:hover,.sticker-print-all:hover {
-	color: #2489cf;
-    cursor: pointer;
-  }
-
-  
+}
+.save-edit button:hover {
+	background: #37acf9;
+	cursor: pointer;
+}

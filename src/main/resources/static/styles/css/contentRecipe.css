@@ -53,29 +53,6 @@
 	border-radius: 10px;
 }
 
-.recipe-tags {
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0 1em;
-}
-
-.tag-content {
-	padding: 0px 5px;
-}
-
-.tag {
-	height: 32px;
-	width: auto;
-	padding: 0 20px 0 20px;
-	color: black;
-	transition: 0.3s linear;
-	font-size: 1.1em;
-	font-weight: 500;
-	line-height: 32px;
-	background: #c4e7fd;
-	border-radius: 10px;
-}
-
 .recipe-second-part {
 	order: 2;
 	width: 50%;
@@ -99,6 +76,7 @@
 .ingredients-text {
 	text-align: start;
 	line-height: 1.3em;
+	font-size: 0.95em;
 }
 
 .recipe-characterisctics {

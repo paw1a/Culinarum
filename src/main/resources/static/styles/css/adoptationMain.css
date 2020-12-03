@@ -35,6 +35,7 @@
 	.sticker-end-content:before {
 		font-size: 0.9em;
 	}
+	
 }
 
 @media(max-width: 768px) {
@@ -88,7 +89,7 @@
 	.filtr-box {
 		width: 100%;
 		margin-right: 0;
-		margin-bottom: 20px;
+		margin-bottom: 25px;
 	}
 	.list {
 		width: 100%;

@@ -56,8 +56,3 @@ body {
 	background-size: cover;
 	background-color: #f5f8f9;
 }
-
-a.disabled {
-	pointer-events: none;
-	cursor: default;
-}
