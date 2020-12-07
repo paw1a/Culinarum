@@ -28,6 +28,7 @@ public class Recipe {
 
     private Integer minutes;
     private Integer calories;
+    private Boolean accepted;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_recipe",

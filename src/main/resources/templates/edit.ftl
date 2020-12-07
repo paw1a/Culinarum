@@ -43,7 +43,7 @@
                         </div>
                         <div class="upload-file"></div>
                         <div class="edit-image">
-                           <input type="file" required name="image" id="upload-input" accept="image/*"
+                           <input type="file" name="image" id="upload-input" accept="image/*"
                                   onchange="PreviewImage();" class="upload-file-input">
                            <label class="new-upload-file-input" for="upload-input">
                               <div class="upload-file-status">файл не выбран</div>
@@ -55,7 +55,14 @@
                               <textarea maxlength="40" required name="cuisine" placeholder="Кухня мира">${recipe.cuisine}</textarea>
                            </div>
                            <div class="tag-content">
-                              <textarea maxlength="40" required name="type" placeholder="Вид блюда">${recipe.type}</textarea>
+                              <select name="type">
+                                 <option disabled>Тип блюда</option>
+                                 <option value="Первые блюда" <#if recipe.type?contains("Первые блюда")>selected</#if>>Первые блюда</option>
+                                 <option value="Вторые блюда" <#if recipe.type?contains("Вторые блюда")>selected</#if>>Вторые блюда</option>
+                                 <option value="Напитки" <#if recipe.type?contains("Напитки")>selected</#if>>Напитки</option>
+                                 <option value="Салаты" <#if recipe.type?contains("Салаты")>selected</#if>>Салаты</option>
+                                 <option value="Другое" <#if recipe.type?contains("Другое")>selected</#if>>Другое</option>
+                              </select>
                            </div>
                         </div>
                         <div class="recipe-characterisctics">
@@ -86,8 +93,13 @@
                            </div>
                            <textarea name="ingredients" required placeholder="Введите ингредиенты">${recipe.ingredients}</textarea>
                         </div>
-                        <div class="save-edit">
-                           <button type="submit">Сохранить</button>
+                        <div class="edit-buttons">
+                           <div class="edit-buttons-content">
+                              <a class="delete-recipe" href="/delete/${recipe.id}">Удалить</a>
+                           </div>
+                           <div class="edit-buttons-content">
+                              <button class="save-recipe" type="submit">Сохранить</button>
+                           </div>
                         </div>
                      </div>
                   </div>

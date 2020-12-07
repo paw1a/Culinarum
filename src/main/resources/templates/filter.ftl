@@ -21,6 +21,10 @@
                          <input type="checkbox" id="checkbox_4" name="typeCheck" value="Салаты">
                          <label for="checkbox_4">Салаты</label>
                      </div>
+                     <div class="checkbox">
+                         <input type="checkbox" id="checkbox_5" name="typeCheck" value="Другое">
+                         <label for="checkbox_5">Другое</label>
+                     </div>
                  </li>
              </ul>
          </li>

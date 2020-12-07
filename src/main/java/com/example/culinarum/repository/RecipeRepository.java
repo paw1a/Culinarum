@@ -10,9 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
-    List<Recipe> findAllByTypeIn(Collection<String> type);
+    List<Recipe> findAllByTypeInAndAccepted(Collection<String> type, Boolean accepted);
 
     Page<Recipe> findAll(Pageable pageable);
+    List<Recipe> findAllByAccepted(Boolean accepted);
     Optional<Recipe> findById(Long id);
-    Page<Recipe> findByNameContainsIgnoreCase(String name, Pageable pageable);
+    Page<Recipe> findByNameContainsIgnoreCaseAndAccepted(String name, Boolean accepted, Pageable pageable);
 }

@@ -50,10 +50,17 @@
                         </div>
                         <div class="recipe-tags">
                             <div class="tag-content">
-                                <textarea maxlength="40" required name="cuisine" placeholder="Кухня мира"></textarea>
+                                <textarea maxlength="60" required name="cuisine" placeholder="Кухня мира"></textarea>
                             </div>
                             <div class="tag-content">
-                                <textarea maxlength="40" required name="type" placeholder="Вид блюда"></textarea>
+                                <select name="type">
+                                    <option disabled>Тип блюда</option>
+                                    <option value="Первые блюда" selected>Первые блюда</option>
+                                    <option value="Вторые блюда">Вторые блюда</option>
+                                    <option value="Напитки">Напитки</option>
+                                    <option value="Салаты">Салаты</option>
+                                    <option value="Другое">Другое</option>
+                                </select>
                             </div>
                         </div>
                         <div class="recipe-characterisctics">
@@ -85,7 +92,7 @@
                             <textarea name="ingredients" required placeholder="Введите ингредиенты"></textarea>
                         </div>
                         <div class="save-edit">
-                            <button type="submit">Добавить</button>
+                            <button type="submit"><#if s.isAdmin>Добавить<#else>Предложить</#if></button>
                         </div>
                     </div>
                 </div>

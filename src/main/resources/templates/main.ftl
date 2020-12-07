@@ -32,17 +32,19 @@
     <div class="main-page">
         <div class="filtr-box">
             <#include "filter.ftl">
-            <div class="extra-buttons">
-                <#if s.isAdmin><a class="sticker-add-recipe" href="/new">Добавить рецепт</a></#if>
-                <a class="sticker-print-all" onclick="CallPrint()">Печать всех рецептов</a>
+            <div class="message-add">
+                <div class="message-add-content">
+                    <#if !s.isAdmin><div class="message-add-title">Есть идеи для рецепта?</div></#if>
+                    <a class="add-recipe" href="/new"><#if s.isAdmin>Добавить<#else>Предложить</#if> рецепт</a>
+                </div>
             </div>
         </div>
-
         <div class="list">
             <#if page.content?size == 0><#include "message.ftl"></#if>
             <#list page.content as recipe>
                 <div class="recipe-box" id="${recipe.id}">
                     <div class="recipe-first-part">
+                        <#if s.isAdmin><a class="sticker-edit" href="/edit?id=${recipe.id}"></a></#if>
                         <div class="dish-name">
                             <div class="dish-name-content">${recipe.name}</div>
                             <div class="name-span"></div>
@@ -129,6 +131,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="message-print">
+                    <div class="message-print-image">
+                        <div class="message-print-image-content"></div>
+                    </div>
+                    <div class="message-print-content">
+                        <a class="print-all" onclick="CallPrint()">Печать страницы</a>
+                    </div>
+                </div>
             </#if>
         </div>
     </div>
@@ -145,6 +155,7 @@
         <p><b>Калорийность</b>: ${recipe.calories}</p>
         <p><b>Ингредиенты</b>: ${recipe.ingredients}</p>
         <p><b>Рецепт</b>: ${recipe.recipe}</p>
+        <br><br>
     </#list>
 </div>
 

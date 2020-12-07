@@ -3,6 +3,7 @@ package com.example.culinarum.controller;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.example.culinarum.entity.Recipe;
+import com.example.culinarum.entity.Role;
 import com.example.culinarum.entity.User;
 import com.example.culinarum.repository.RecipeRepository;
 import com.example.culinarum.repository.UserRepository;
@@ -47,12 +48,12 @@ public class MainController {
         StringBuilder url = new StringBuilder("?");
 
         if(search != null && !search.isEmpty()) {
-            page = recipeRepository.findByNameContainsIgnoreCase(search, pageable);
+            page = recipeRepository.findByNameContainsIgnoreCaseAndAccepted(search, Boolean.TRUE, pageable);
             url.append("search=").append(search).append("&");
         } else {
             Set<Recipe> recipes = new HashSet<>();
             if (typeCheck == null)
-                typeCheck = Arrays.asList("Первые блюда", "Вторые блюда", "Напитки", "Салаты");
+                typeCheck = Arrays.asList("Первые блюда", "Вторые блюда", "Напитки", "Салаты", "Другое");
             else for (String s : typeCheck) url.append("typeCheck=").append(s).append("&");
 
             List<Point> minutes = new ArrayList<>();
@@ -60,14 +61,14 @@ public class MainController {
                 minutes.add(new Point(0, 30));
                 minutes.add(new Point(30, 60));
                 minutes.add(new Point(60, 90));
-                minutes.add(new Point(90, 1000));
+                minutes.add(new Point(90, Integer.MAX_VALUE));
             } else {
                 for (String s : timeCheck) {
                     switch (Integer.parseInt(s)) {
                         case 1: minutes.add(new Point(0, 30));break;
                         case 2: minutes.add(new Point(30, 60));break;
                         case 3: minutes.add(new Point(60, 90));break;
-                        case 4: minutes.add(new Point(90, 1000));break;
+                        case 4: minutes.add(new Point(90, Integer.MAX_VALUE));break;
                     }
                 }
                 for (String s : timeCheck) url.append("timeCheck=").append(s).append("&");
@@ -77,19 +78,19 @@ public class MainController {
             if (caloriesCheck == null) {
                 calories.add(new Point(0, 100));
                 calories.add(new Point(100, 300));
-                calories.add(new Point(300, 1000));
+                calories.add(new Point(300, Integer.MAX_VALUE));
             } else {
                 for (String s : caloriesCheck) {
                     switch (Integer.parseInt(s)) {
                         case 1: calories.add(new Point(0, 100));break;
                         case 2: calories.add(new Point(100, 300));break;
-                        case 3: calories.add(new Point(300, 1000));break;
+                        case 3: calories.add(new Point(300, Integer.MAX_VALUE));break;
                     }
                 }
                 for (String s : caloriesCheck) url.append("caloriesCheck=").append(s).append("&");
             }
 
-            for (Recipe recipe : recipeRepository.findAllByTypeIn(typeCheck)) {
+            for (Recipe recipe : recipeRepository.findAllByTypeInAndAccepted(typeCheck, Boolean.TRUE)) {
                 for (Point m : minutes)
                     if (recipe.getMinutes() >= m.x && recipe.getMinutes() <= m.y) {
                         for (Point c : calories)
@@ -108,84 +109,27 @@ public class MainController {
         return "main";
     }
 
-    @GetMapping("/add/{id}")
-    public String addRecipe(@PathVariable String id, @AuthenticationPrincipal User user) {
-        Long idd = Long.parseLong(id);
-        Recipe recipe = recipeRepository.findById(idd).orElse(null);
-        user = userRepository.findById(user.getId()).orElse(null);
-        if(recipe != null) {
-            user.getRecipes().add(recipe);
-            userRepository.save(user);
-        }
-        return "redirect:/#"+id;
-    }
-
-    @GetMapping("/remove/{id}")
-    public String removeRecipe(@PathVariable String id, @AuthenticationPrincipal User user) {
-        Long idd = Long.parseLong(id);
-        Recipe recipe = recipeRepository.findById(idd).orElse(null);
-        user = userRepository.findById(user.getId()).orElse(null);
-        if(recipe != null) {
-            user.getRecipes().remove(recipe);
-            userRepository.save(user);
-        }
-        if(user.getRecipes().isEmpty()) return "redirect:/";
-        return "redirect:/favorites";
-    }
-
-    @GetMapping("/edit")
-    public String edit(@RequestParam String id, Model model) {
-        model.addAttribute("recipe", recipeRepository.findById(Long.parseLong(id)).orElse(null));
-        return "edit";
-    }
-
-    @GetMapping("/new")
-    public String newRecipe() {
-        return "new";
-    }
-
-    @PostMapping("/update")
-    public String update(String id, String name, String cuisine, String type,
-                       String recipe, String ingredients, Integer minutes, Integer calories,
-                       MultipartFile image) {
-
-        Recipe updatedRecipe;
-        if(id != null && !id.isEmpty())
-            updatedRecipe = recipeRepository.findById(Long.parseLong(id)).orElse(null);
-        else updatedRecipe = new Recipe();
-
-        if(updatedRecipe != null) {
-            updatedRecipe.setName(name);
-            updatedRecipe.setCuisine(cuisine);
-            updatedRecipe.setType(type);
-            updatedRecipe.setRecipe(recipe);
-            updatedRecipe.setIngredients(ingredients);
-            updatedRecipe.setMinutes(minutes);
-            updatedRecipe.setCalories(calories);
-
-            Cloudinary cloudinary = new Cloudinary("cloudinary://535661528615272:aHyZLIYT5rpMmkUljmewhfZlpuk@miragost");
-            try {
-                Map response = cloudinary.uploader().upload(image.getBytes(), ObjectUtils.asMap("folder", "culinarum"));
-                updatedRecipe.setImage(response.get("public_id").toString().replace(
-                        "culinarum/", "") + "." + response.get("format").toString());
-            } catch(Exception e) { System.err.println("Upload failed"); }
-
-            recipeRepository.save(updatedRecipe);
-        }
-        return "redirect:/";
-    }
-
-    @GetMapping("/{id}")
-    public String recipe(Model model, @PathVariable Long id) {
-        model.addAttribute("recipe", recipeRepository.findById(id).orElse(null));
-        return "recipe";
-    }
-
     @GetMapping("/favorites")
     public String favorites(Model model, @AuthenticationPrincipal User user) {
         user = userRepository.findById(user.getId()).orElse(null);
         model.addAttribute("recipes", user.getRecipes());
         return "favorites";
+    }
+
+    @GetMapping("/moderation")
+    public String moderation(Model model) {
+        model.addAttribute("recipes", recipeRepository.findAllByAccepted(Boolean.FALSE));
+        return "moderation";
+    }
+
+    @GetMapping("/approve/{id}")
+    public String approveRecipe(@PathVariable Long id) {
+        Recipe recipe = recipeRepository.findById(id).orElse(null);
+        if(recipe != null) {
+            recipe.setAccepted(true);
+            recipeRepository.save(recipe);
+        }
+        return "redirect:/moderation";
     }
 
     @GetMapping("/test")
@@ -195,4 +139,5 @@ public class MainController {
             recipeRepository.save(recipe);
         }
     }
+
 }
