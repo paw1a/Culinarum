@@ -25,12 +25,13 @@
 <body>
 
 <#include "navbar.ftl">
+<#include "modal.ftl">
 <div class="content-box" >
     <div class="main-page">
         <div class="list">
             <div class="recipe-box">
                 <div class="recipe-first-part">
-                    <a class="sticker-edit" href="/edit?id=${recipe.id}"></a>
+                    <#if s.isAdmin><a class="sticker-edit" href="/edit?id=${recipe.id}"></a></#if>
                     <div class="dish-name">
                         <div class="dish-name-content">${recipe.name}</div>
                         <div class="name-span"></div>

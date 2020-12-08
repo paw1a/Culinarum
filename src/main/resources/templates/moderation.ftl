@@ -56,17 +56,17 @@
                         <div class="recipe-buttons">
                             <div class="sticker-container">
                                 <div class="sticker-approve">
-                                    <a class="sticker-approve-content" href="index_in.html"></a>
+                                    <a class="sticker-approve-content" href="/approve/${recipe.id}"></a>
                                 </div>
                             </div>
                             <div class="sticker-container">
                                 <div class="sticker-disapprove">
-                                    <a class="sticker-disapprove-content" href="index_in.html"></a>
+                                    <a class="sticker-disapprove-content" href="/delete/${recipe.id}"></a>
                                 </div>
                             </div>
                             <div class="sticker-container">
                                 <div class="sticker-more">
-                                    <a class="sticker-more-content" href="index_in.html"></a>
+                                    <a class="sticker-more-content" href="/recipe/${recipe.id}"></a>
                                </div>
                             </div>
                         </div>

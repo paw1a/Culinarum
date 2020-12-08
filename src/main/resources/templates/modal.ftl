@@ -48,7 +48,7 @@
                     <span class="register-error-message">Error message here!</span>
                 </p>
                 <p class="fieldset">
-                    <input type="checkbox" id="accept-terms">
+                    <input type="checkbox" checked id="accept-terms">
                     <label class="label-agree" for="accept-terms">I agree to the <a class="register-terms" href="#">Terms</a></label>
                 </p>
                 <p class="fieldset">

@@ -18,12 +18,12 @@
             <ul class="menu-left">
                 <#if s.known>
                         <li><a href="/favorites">Избранное</a></li>
+                        <#if s.isAdmin><li><a href="/moderation">Модерация</a></li></#if>
                         <li><a href="/logout">Выйти</a></li>
                     <#else>
                         <li><a class="sign-in" href="#">Войти</a></li>
                         <li><a class="sign-up" href="#">Регистрация</a></li>
                 </#if>
-                <li><a href="/moderation">Модерация</a></li>
             </ul>
         </nav>
     </div>

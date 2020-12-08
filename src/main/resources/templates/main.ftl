@@ -32,12 +32,14 @@
     <div class="main-page">
         <div class="filtr-box">
             <#include "filter.ftl">
-            <div class="message-add">
-                <div class="message-add-content">
-                    <#if !s.isAdmin><div class="message-add-title">Есть идеи для рецепта?</div></#if>
-                    <a class="add-recipe" href="/new"><#if s.isAdmin>Добавить<#else>Предложить</#if> рецепт</a>
+            <#if s.known>
+                <div class="message-add">
+                    <div class="message-add-content">
+                        <#if !s.isAdmin><div class="message-add-title">Есть идеи для рецепта?</div></#if>
+                        <a class="add-recipe" href="/new"><#if s.isAdmin>Добавить<#else>Предложить</#if> рецепт</a>
+                    </div>
                 </div>
-            </div>
+            </#if>
         </div>
         <div class="list">
             <#if page.content?size == 0><#include "message.ftl"></#if>
