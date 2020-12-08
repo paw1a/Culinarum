@@ -200,12 +200,12 @@
 .sticker-delete-content:before {
 	display: block;
 	color: rgba(0, 0, 0, .075);
-	padding: 6.5px 6px;
+	padding-top: 6px;
 	position: relative;
 	margin: 0 auto;
 	transition: 0.2s linear;
 	font-size: 1.6em;
-	content: "\f05e";
+	content: "\f057";
 	font-family: FontAwesome;
 }
 
@@ -484,4 +484,91 @@ a.disabled {
 .save-recipe:hover, .delete-recipe:hover {
 	background: #37acf9;
 	cursor: pointer;
+}
+
+/*--Approve&Disapprove buttons--*/
+
+.sticker-approve-content {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	height: 50px;
+	width: 50px;
+	color: black;
+	transition: 0.2s linear;
+	font-size: 1.4em;
+	font-weight: 500;
+	line-height: 32px;
+	background: rgba(0, 0, 0, .01);
+	border: 3px solid rgba(0, 0, 0, .075);
+	border-radius: 25px;
+}
+
+.sticker-approve-content:before {
+	display: block;
+	color: rgba(0, 0, 0, .075);
+	padding: 6px;
+	position: relative;
+	margin: 0 auto;
+	transition: 0.2s linear;
+	font-size: 1.4em;
+	content: "\f164";
+	font-family: FontAwesome;
+}
+
+.sticker-approve:hover .sticker-approve-content:before {
+	color: #2489cf;
+}
+
+.sticker-approve {
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.sticker-approve:hover .sticker-approve-content {
+	border-color: #2489cf;
+}
+
+
+.sticker-disapprove-content {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	height: 50px;
+	width: 50px;
+	color: black;
+	transition: 0.2s linear;
+	font-size: 1.4em;
+	font-weight: 500;
+	line-height: 32px;
+	background: rgba(0, 0, 0, .01);
+	border: 3px solid rgba(0, 0, 0, .075);
+	border-radius: 25px;
+}
+
+.sticker-disapprove-content:before {
+	display: block;
+	color: rgba(0, 0, 0, .075);
+	padding: 6px;
+	position: relative;
+	margin: 0 auto;
+	transition: 0.2s linear;
+	font-size: 1.4em;
+	content: "\f165";
+	font-family: FontAwesome;
+}
+
+.sticker-disapprove:hover .sticker-disapprove-content:before {
+	color: #2489cf;
+}
+
+.sticker-disapprove{
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.sticker-disapprove:hover .sticker-disapprove-content {
+	border-color: #2489cf;
 }

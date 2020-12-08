@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="styles\css\header.css">
     <link rel="stylesheet" href="styles\css\search.css">
     <link rel="stylesheet" href="styles\css\register.css">
-    <link rel="stylesheet" href="styles\css\contentSaved.css">
+    <link rel="stylesheet" href="styles\css\contentModeration.css">
     <link rel="stylesheet" href="styles\css\tags.css">
     <link rel="stylesheet" href="styles\css\stickers.css">
     <link rel="stylesheet" href="styles\css\barier.css">
     <link rel="stylesheet" href="styles\css\message.css">
     <link rel="stylesheet" href="styles\css\footer.css">
-    <link rel="stylesheet" href="styles\css\adoptationSaved.css">
+    <link rel="stylesheet" href="styles\css\adoptationModeration.css">
     <link rel="icon" href="styles\svg\favicon.svg" type="image/png ">
     <title>Culinarum</title>
 </head>
@@ -55,19 +55,19 @@
                         </div>
                         <div class="recipe-buttons">
                             <div class="sticker-container">
+                                <div class="sticker-approve">
+                                    <a class="sticker-approve-content" href="index_in.html"></a>
+                                </div>
+                            </div>
+                            <div class="sticker-container">
+                                <div class="sticker-disapprove">
+                                    <a class="sticker-disapprove-content" href="index_in.html"></a>
+                                </div>
+                            </div>
+                            <div class="sticker-container">
                                 <div class="sticker-more">
-                                    <a class="sticker-more-content" href="/${recipe.id}"></a>
-                                </div>
-                            </div>
-                            <div class="sticker-container">
-                                <div class="sticker-delete">
-                                    <a class="sticker-delete-content" href="/approve/${recipe.id}"></a>
-                                </div>
-                            </div>
-                            <div class="sticker-container">
-                                <div class="sticker-delete">
-                                    <a class="sticker-delete-content" href="/delete/${recipe.id}"></a>
-                                </div>
+                                    <a class="sticker-more-content" href="index_in.html"></a>
+                               </div>
                             </div>
                         </div>
                     </div>
