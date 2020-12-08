@@ -66,7 +66,7 @@
                             </div>
                             <div class="sticker-container">
                                 <div class="sticker-more">
-                                    <a class="sticker-more-content" href="/recipe/${recipe.id}"></a>
+                                    <a class="sticker-more-content" href="/${recipe.id}"></a>
                                </div>
                             </div>
                         </div>
