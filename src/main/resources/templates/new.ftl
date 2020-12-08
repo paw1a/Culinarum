@@ -91,8 +91,10 @@
                             </div>
                             <textarea name="ingredients" required placeholder="Введите ингредиенты"></textarea>
                         </div>
-                        <div class="save-edit">
-                            <button type="submit"><#if s.isAdmin>Добавить<#else>Предложить</#if></button>
+                        <div class="edit-buttons">
+                            <div class="edit-buttons-content">
+                                <button class="save-recipe" type="submit"><#if s.isAdmin>Добавить<#else>Предложить</#if></button>
+                            </div>
                         </div>
                     </div>
                 </div>

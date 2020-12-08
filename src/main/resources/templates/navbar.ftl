@@ -23,6 +23,7 @@
                         <li><a class="sign-in" href="#">Войти</a></li>
                         <li><a class="sign-up" href="#">Регистрация</a></li>
                 </#if>
+                <li><a href="/moderation">Модерация</a></li>
             </ul>
         </nav>
     </div>
