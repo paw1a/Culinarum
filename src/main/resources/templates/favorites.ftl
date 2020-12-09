@@ -61,7 +61,8 @@
                                 <div class="description-name-content">Рецепт</div>
                                 <div class="name-span"></div>
                             </div>
-                            <div class="description-text">${recipe.recipe}</div>
+                            <div class="description-text">${(recipe.recipe?length>201)?
+                                then(recipe.recipe?substring(0, 200)+"...", recipe.recipe)}</div>
                         </div>
                         <div class="recipe-buttons">
                             <div class="sticker-container">
