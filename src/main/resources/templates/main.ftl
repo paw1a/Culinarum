@@ -42,7 +42,18 @@
             </#if>
         </div>
         <div class="list">
-            <#if page.content?size == 0><#include "message.ftl"></#if>
+            <#if page.content?size == 0>
+                <div class="message">
+                    <div class="message-image">
+                        <div class="message-image-content"></div>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-title">Сожалеем, но...</div>
+                        <div class="message-text">Запрос не дал результатов</div>
+                        <a class="go-back" href="/">Вернуться</a>
+                    </div>
+                </div>
+            </#if>
             <#list page.content as recipe>
                 <div class="recipe-box" id="${recipe.id}">
                     <div class="recipe-first-part">
@@ -56,7 +67,7 @@
                         </div>
                         <div class="recipe-tags">
                             <div class="tag-content">
-                                <a class="tag" href="#">${recipe.cuisine}</a>
+                                <a class="tag disabled" href="/">${recipe.cuisine}</a>
                             </div>
                             <div class="tag-content">
                                 <a class="tag" href="/?typeCheck=${recipe.type}">${recipe.type}</a>
@@ -148,13 +159,11 @@
 
 <div id="print-content" hidden>
     <#list page.content as recipe>
-        <img alt="image" src="https://res.cloudinary.com/miragost/image/upload/v1606145231/culinarum/${recipe.image}">
-        <p><b>Id</b>: ${recipe.id}</p>
-        <p><b>Название рецепта</b>: ${recipe.name}</p>
+        <h3>${recipe.name} (# ${recipe.id})</h3>
         <p><b>Вид блюда</b>: ${recipe.type}</p>
         <p><b>Кухня</b>: ${recipe.cuisine}</p>
-        <p><b>Время приготовления</b>: ${recipe.minutes}</p>
-        <p><b>Калорийность</b>: ${recipe.calories}</p>
+        <p><b>Время приготовления</b>: ${recipe.minutes} мин</p>
+        <p><b>Калорийность</b>: ${recipe.calories} ккал</p>
         <p><b>Ингредиенты</b>: ${recipe.ingredients}</p>
         <p><b>Рецепт</b>: ${recipe.recipe}</p>
         <br><br>

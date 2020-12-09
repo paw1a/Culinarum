@@ -18,9 +18,11 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
+
+    @Column(length = 2000)
     private String ingredients;
+    @Column(length = 2000)
     private String recipe;
     private String type;
     private String cuisine;

@@ -41,7 +41,7 @@
                     </div>
                     <div class="recipe-tags">
                         <div class="tag-content">
-                            <a class="tag" href="/?cuisineCheck=${recipe.cuisine}">${recipe.cuisine}</a>
+                            <a class="tag disabled" href="/">${recipe.cuisine}</a>
                         </div>
                         <div class="tag-content">
                             <a class="tag" href="/?typeCheck=${recipe.type}">${recipe.type}</a>
@@ -67,7 +67,7 @@
                                 </div>
                             <#else>
                                 <div class="sticker-plus">
-                                    <a class="sticker-plus-content <#if !s.known>disabled</#if>"
+                                    <a class="sticker-plus-content <#if !s.known || !recipe.accepted>disabled</#if>"
                                        href="/add/<#if s.known>${recipe.id}</#if>"></a>
                                 </div>
                             </#if>
@@ -103,15 +103,14 @@
 <#include "footer.ftl">
 
 <div id="print-content" hidden>
-    <img alt="image" src="https://res.cloudinary.com/miragost/image/upload/v1606145231/culinarum/${recipe.image}">
-    <p><b>Id</b>: ${recipe.id}</p>
-    <p><b>Название рецепта</b>: ${recipe.name}</p>
+    <h3>${recipe.name} (# ${recipe.id})</h3>
     <p><b>Вид блюда</b>: ${recipe.type}</p>
     <p><b>Кухня</b>: ${recipe.cuisine}</p>
-    <p><b>Время приготовления</b>: ${recipe.minutes}</p>
-    <p><b>Калорийность</b>: ${recipe.calories}</p>
+    <p><b>Время приготовления</b>: ${recipe.minutes} мин</p>
+    <p><b>Калорийность</b>: ${recipe.calories} ккал</p>
     <p><b>Ингредиенты</b>: ${recipe.ingredients}</p>
     <p><b>Рецепт</b>: ${recipe.recipe}</p>
+    <br><br>
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>

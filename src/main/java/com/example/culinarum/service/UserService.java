@@ -38,12 +38,4 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
         return true;
     }
-
-    public void updateUser(User user) {
-        userRepository.save(user);
-    }
-
-    public User getUser(Long id) {
-        return userRepository.getOne(id);
-    }
 }

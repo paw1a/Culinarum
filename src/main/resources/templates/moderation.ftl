@@ -27,7 +27,16 @@
     <div class="main-page">
         <div class="list">
             <#if recipes?size == 0>
-                <#include "message.ftl">
+                <div class="message">
+                    <div class="message-image">
+                        <div class="message-image-content"></div>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-title">Нечего модерировать</div>
+                        <div class="message-text">Возможно никто не предложил рецепт</div>
+                        <a class="go-back" href="/">Вернуться</a>
+                    </div>
+                </div>
             <#else>
                 <div class="saved-container">
                     <div class="saved"><div class="saved-name">Модерация</div></div>

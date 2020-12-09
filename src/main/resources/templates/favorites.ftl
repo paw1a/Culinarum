@@ -28,7 +28,16 @@
     <div class="main-page">
         <div class="list">
             <#if recipes?size == 0>
-                <#include "message.ftl">
+                <div class="message">
+                    <div class="message-image">
+                        <div class="message-image-content"></div>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-title">Нет избранных</div>
+                        <div class="message-text">Возможно вы еще не добавили рецепт</div>
+                        <a class="go-back" href="/">Вернуться</a>
+                    </div>
+                </div>
                 <#else>
                     <div class="saved-container">
                         <div class="saved"><div class="saved-name">Избранное</div></div>

@@ -19,7 +19,7 @@
                 </p>
                 <p class="fieldset">
                     <input type="checkbox" id="remember-me" name="remember-me" checked>
-                    <label class="label-remember-me" for="remember-me">Remember me</label>
+                    <label class="label-remember-me" for="remember-me">Запомнить меня</label>
                 </p>
                 <p class="fieldset">
                     <button class="register-input" type="submit">Войти</button>
@@ -49,7 +49,7 @@
                 </p>
                 <p class="fieldset">
                     <input type="checkbox" checked id="accept-terms">
-                    <label class="label-agree" for="accept-terms">I agree to the <a class="register-terms" href="#">Terms</a></label>
+                    <label class="label-agree" for="accept-terms">Я согласен с <a class="register-terms" href="#">условиями</a></label>
                 </p>
                 <p class="fieldset">
                     <button class="register-input" type="submit">Зарегистрироваться</button>
@@ -57,19 +57,19 @@
             </form>
         </div>
         <div id="register-reset-password">
-            <p class="register-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
-            <form class="register-form">
+            <p class="register-form-message">Забыли пароль? Введите ваш e-mail адрес. Вы получите ссылку для восстановления пароля.</p>
+            <form class="register-form" action="/">
                 <p class="fieldset">
                     <label class="register-image register-email" for="reset-email"></label>
                     <input class="register-input " id="reset-email" type="email" placeholder="E-mail">
                     <span class="register-error-message">Error message here!</span>
                 </p>
                 <p class="fieldset">
-                    <input class="register-input " type="submit" value="Reset password">
+                    <input class="register-input" type="submit" value="Восстановить пароль">
                 </p>
             </form>
-            <p class="register-forgot-message"><a href="#0">Back to log-in</a></p>
+            <p class="register-forgot-message"><a href="#0">Назад</a></p>
         </div>
-        <a href="#" class="register-close">Close</a>
+        <a href="#" class="register-close">Закрыть</a>
     </div>
 </div>
