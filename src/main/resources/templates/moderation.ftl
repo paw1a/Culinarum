@@ -33,7 +33,6 @@
                     </div>
                     <div class="message-content">
                         <div class="message-title">Нечего модерировать</div>
-                        <div class="message-text">Возможно никто не предложил рецепт</div>
                         <a class="go-back" href="/">Вернуться</a>
                     </div>
                 </div>
